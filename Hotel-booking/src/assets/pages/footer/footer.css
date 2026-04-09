@@ -1,0 +1,77 @@
+
+footer{ 
+    display: flex;
+    background-color: black;
+    justify-content: space-evenly;
+    padding: 50px 0;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 9;
+}
+.footer-panels{
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.footer-panels> h3{
+    font-size: clamp(1.2rem, 2vw, 1.7rem);
+}
+.footer-panels> ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer-panels> ul> li>div{
+    display: flex;
+}
+.footer-panels> ul> li> div> p{
+    margin: 0;
+    font-size: clamp(0.9rem, 1.3vw, 1.8rem);
+}
+.footer-panels> ul> li> a{
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: clamp(0.9rem, 1.3vw, 1.8rem);
+}
+.footer-panels> ul> li> a:hover{
+    color: red;
+}
+.footer-logo{
+    width: clamp(10px, 1.5vw, 30px);
+    margin-right: 10px;
+}
+.subscribe-input{
+    width: 80%;
+    padding: 10px 10px;
+}
+.subscribe-button{
+    font-size: clamp(0.9rem, 1.4vw, 2rem);
+    width: fit-content;
+    padding: 10px 15px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 0.25em;
+}
+.subscribe-button:hover{
+    background-color: aliceblue;
+}
+.alright-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    gap: 1em;
+}
+.alright-wrapper> p{
+    margin: 0;
+}
+@media only screen and (max-width: 540px){
+    .footer-panels:nth-child(2){
+        display: none;
+    }
+    .alright-wrapper{
+        margin-bottom: 50px;
+        gap: 0.5em;
+    }
+}
