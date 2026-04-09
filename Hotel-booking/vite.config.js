@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
-  base: '/Hotel_booking_react_ver/'
+  base: '/Hotel_booking_react_ver/Hotel-booking/'
 })
