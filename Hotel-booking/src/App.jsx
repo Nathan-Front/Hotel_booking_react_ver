@@ -1,9 +1,14 @@
-import Home from "./assets/pages/home/home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navigations from "./assets/pages/navigation/navigation.jsx";
+import Home from "./assets/pages/home/home.jsx";
 function App() {
   return (
-    <>
-      <Home />
-    </>
+    <BrowserRouter basename="/Hotel_booking_react_ver/">
+      <Navigations />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
