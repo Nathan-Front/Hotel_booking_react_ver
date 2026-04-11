@@ -1,4 +1,5 @@
 import "./footer.css";
+import AlrightReserve from "./alrightReserve.jsx";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { validateEmail, subscribe } from "./footer.js";
@@ -142,6 +143,7 @@ function Footer() {
           </form>
         </div>
       </footer>
+      <AlrightReserve />
     </>
   );
 }
