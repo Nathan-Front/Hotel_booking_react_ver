@@ -1,3 +1,13 @@
+
+export function submitMessage(message) {
+  const customerMessage = JSON.parse(localStorage.getItem("customerMessage")) || [];
+  if(!customerMessage) return;
+  customerMessage.push(message)
+  localStorage.setItem("customerMessage", JSON.stringify(customerMessage));
+  return {success: true}
+}
+
+/*
 async function fetchNavbar(){
   const body = document.body;
 
@@ -239,6 +249,7 @@ function galleryMobileTouch(){
 
     galleryContainer.style.transform = `translateX(-${translate}px)`;
   }*/
+ /*
   galleryContainer.addEventListener("touchstart", (e) =>{
     startX = e.touches[0].clientX;
     isDragging = true;},
@@ -323,3 +334,4 @@ async function initAsync() {
 document.addEventListener("DOMContentLoaded", initAsync);
 
 
+*/
