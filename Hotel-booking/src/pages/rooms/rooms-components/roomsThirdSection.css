@@ -54,7 +54,13 @@
     margin: 0;
     padding: 0 10px;
 }
-.star-rating{
+.star-rating {
+    display: flex;
+    color: rgb(38, 89, 243);
+}
+.ratings{
+    margin: auto 0;
+    font-size: clamp(12px, 1.3vw, 24px);
     color: rgb(38, 89, 243);
 }
 .recommend-details{

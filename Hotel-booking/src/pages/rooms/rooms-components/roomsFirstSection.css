@@ -15,7 +15,7 @@ p, button{
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("../images/rooms/firstSection/image-background.jpg");
+    background-image: url("/images/rooms/firstSection/image-background.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

@@ -1,6 +1,6 @@
 import "./fifthSection.css";
 import { useState } from "react";
-import { submitMessage } from "../../../script";
+import { submitMessage } from "../../../assets/script/index.js";
 function FifthSection() {
   const [inputMessage, setInputMessage] = useState({
     customer: "",

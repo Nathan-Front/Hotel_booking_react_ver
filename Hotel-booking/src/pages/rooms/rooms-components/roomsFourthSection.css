@@ -22,16 +22,18 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 0.25em;
+
 }
 .faq-panels{
     width: clamp(350px, 45vw, 800px);
     border: 0.5px gray solid;
     border-radius: 0.25em;
+  
 }
 .faq-question {
-    width: 100%;
+    width: 90%;
     padding: 10px 5px;
-    font-size: clamp(1.1rem, 1.4vw, 1.7rem);
+    font-size: clamp(1rem, 1.4vw, 1.7rem);
     font-weight: bolder;
     background: transparent;
     border: none;
@@ -40,21 +42,32 @@
     position: relative;
     display: flex;
     align-items: center;
+     
 }
 .faq-question::after {
     content: '\02795';
     position: absolute;
-    right: 10px;
+    right: -10%;
     top: 7px;
 }
+.faq-question:hover, 
+.faq-question.active {
+  color: rgb(38, 89, 243); /* Your theme color */
+}
 .faq-answer {
-    max-height: 0;
-    overflow: hidden;
+    display: block;
     background: #f4f4f4;
+    color: #666;
     transition: max-height 0.3s ease;
     padding: 0 10px;
+    line-height: 1.5;
+    animation: slideDown 0.3s ease-out;
 }
-.faq-item.active .faq-answer {
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.faq-item.activeFAQ .faq-answer {
     display: block;
 }
 @media only screen and (max-width: 330px){
@@ -76,9 +89,5 @@
     }
     .faq-question::after{
         display: none;
-    }
-    .faq-panels{
-        width: 80%;
-        margin: 0 auto;
     }
 }

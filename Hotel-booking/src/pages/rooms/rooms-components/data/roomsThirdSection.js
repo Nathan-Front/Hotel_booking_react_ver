@@ -1,0 +1,6 @@
+export const mostBooked = [
+    {name: "Twin bed (Double) rooms", src: "images/index/rooms/twinbed double.jpg", comment: "I had a very pleasant stay at this hotel. The room was clean, comfortable, and quiet, and the bed was very cozy. The staff were friendly and helpful, and check-in was quick and easy. I would recommend this hotel and would stay here again.", rate: 4},
+    {name: "Queen bed rooms", src: "images/index/rooms/queenbed.jpeg", comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate fugiat ipsa perferendis enim ab quae, error nam in ea voluptates ut iure eligendi obcaecati eum non, rerum dicta aut doloribus.", rate: 5},
+    {name: "King bed rooms", src: "images/index/rooms/kingbed.jpg", comment: "The view from the room was gorgeous, especially during dawn. You can clearly see the horizon on the distance while the sun is setting.", rate: 5},
+    {name: "Family rooms", src: "images/rooms/secondSection/family-room.jpeg", comment: "The view of sunset was just so beautiful. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia deserunt unde totam, eaque rerum molestiae iste, distinctio repudiandae ut repellendus asperiores architecto, nihil dolores corrupti saepe eligendi tempore. Quidem, impedit.", rate: 5},
+];
