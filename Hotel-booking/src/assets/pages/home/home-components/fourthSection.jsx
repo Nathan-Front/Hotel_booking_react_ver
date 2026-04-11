@@ -2,12 +2,12 @@ import "./fourthSection.css";
 import { fourthSectionImage } from "./data/fourthSection";
 import { useState, useEffect, useRef } from "react";
 function FourthSection() {
-  const [curentImg, setCurrentImg] = useState(4);
+  const [currentImg, setCurrentImg] = useState(4);
   useEffect(() => {
     const handleImagePreview = () => {
       if (window.innerWidth <= 599) {
         setCurrentImg(2);
-      } else if (window.innerHeight <= 768) {
+      } else if (window.innerWidth <= 768) {
         setCurrentImg(3);
       } else {
         setCurrentImg(4);
@@ -16,32 +16,32 @@ function FourthSection() {
     handleImagePreview();
     window.addEventListener("resize", handleImagePreview);
     return () => window.removeEventListener("resize", handleImagePreview);
-  }, [curentImg]);
+  }, [currentImg]);
 
-  const maxIndex = Math.max(0, fourthSectionImage.length - curentImg);
+  const maxIndex = Math.max(0, fourthSectionImage.length - currentImg);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nxtBtn = () => {
-    setCurrentIndex((prev) => (prev === maxIndex - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
   };
   const prevBtn = () => {
-    setCurrentIndex((prev) => (prev === 0 ? maxIndex - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
   };
 
-  const trackRef = useRef();
+  const trackRef = useRef(null);
   const [translateX, setTranslateX] = useState(0);
   useEffect(() => {
+    if (!trackRef.current) return;
     const track = trackRef.current;
-    if (!track) return;
 
     const slide = track.querySelector(".gallery-image");
     if (slide) {
       const style = window.getComputedStyle(track);
-      const gap = parseInt(style.gap) || 0;
-      const slideWidth = slide.offsetWidth + gap;
+      const gap = parseInt(style.columnGap || style.gap) || 0;
+      const slideWidth = slide.getBoundingClientRect().width + gap;
       setTranslateX(currentIndex * slideWidth);
     }
-  }, [currentIndex]);
+  }, [currentIndex, maxIndex]);
 
   return (
     <>
