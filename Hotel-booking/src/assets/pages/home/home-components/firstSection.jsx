@@ -24,7 +24,7 @@ function FirstSection() {
                   className={`room-image ${currentImg === index ? "active" : ""}`} //Refer to index instead
                   src={`${import.meta.env.BASE_URL}${image.src}`}
                   alt={`banner image ${image.id}`}
-                  loading="lazy"
+                  loading="eager"
                 />
               </li>
             ),

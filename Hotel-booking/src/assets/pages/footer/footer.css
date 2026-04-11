@@ -38,7 +38,7 @@ footer{
     color: red;
 }
 .footer-logo{
-    width: clamp(10px, 1.5vw, 30px);
+    width: clamp(15px, 1.5vw, 30px);
     margin-right: 10px;
 }
 .subscribe-input{

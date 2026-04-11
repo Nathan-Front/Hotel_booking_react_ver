@@ -1,5 +1,7 @@
 import "./footer.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { validateEmail, subscribe } from "./footer.js";
 function Footer() {
   const footerContact = [
     { name: "address", src: "images/logo/address-svgrepo-com.svg" },
@@ -7,10 +9,22 @@ function Footer() {
     { name: "email", src: "images/logo/email-add-svgrepo-com.svg" },
   ];
   const footerLinks = [
-    { name: "Home", path: "/" },
-    { name: "Rooms", path: "/" },
-    { name: "About", path: "/" },
-    { name: "Contact", path: "/" },
+    { name: "Home", path: "/", src: "images/logo/home-1-svgrepo-com.svg" },
+    {
+      name: "Rooms",
+      path: "/",
+      src: "images/logo/room-key-key-svgrepo-com.svg",
+    },
+    {
+      name: "About",
+      path: "/",
+      src: "images/logo/about-faq-help-question-svgrepo-com.svg",
+    },
+    {
+      name: "Contact",
+      path: "/",
+      src: "images/logo/contact-phone-communication-svgrepo-com.svg",
+    },
   ];
   const footerMedia = [
     { name: "Facebook", src: "images/logo/facebook-svgrepo-com.png" },
@@ -24,6 +38,34 @@ function Footer() {
     },
     { name: "LinkedIn", src: "images/logo/linkedin-boerder-svgrepo-com.png" },
   ];
+  const [isSubscribe, setIsSubscribe] = useState({
+    email: "",
+    date: new Date().toISOString(),
+  });
+  const handleSubscribe = (e) => {
+    const { name, value } = e.target;
+    setIsSubscribe((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  const handleSubcribe = (e) => {
+    e.preventDefault();
+    const mail = validateEmail(isSubscribe.email);
+    if (mail) {
+      const result = subscribe(isSubscribe);
+      if (result.success) {
+        setIsSubscribe({ email: "", date: new Date().toISOString() });
+        alert("Thank you for subscribing.");
+      } else if (result.errorType === "Already_Exist") {
+        alert("This email is already subscribed.");
+        return;
+      }
+    } else {
+      alert("Please input correct email format.");
+      return;
+    }
+  };
   return (
     <>
       <footer>
@@ -48,9 +90,17 @@ function Footer() {
         <div className="footer-panels">
           <h3>Quick Links</h3>
           <ul>
-            {footerLinks.map((l) => (
-              <li key={l.name}>
-                <Link to={l.path}>{l.name}</Link>
+            {footerLinks.map((quick) => (
+              <li key={quick.name}>
+                <Link to={quick.path}>
+                  <img
+                    className="footer-logo"
+                    src={quick.src}
+                    alt={`${quick.name}-logo`}
+                    loading="lazy"
+                  />
+                  {quick.name}
+                </Link>
               </li>
             ))}
           </ul>
@@ -76,15 +126,20 @@ function Footer() {
         <div className="footer-panels">
           <h3>Newsletter</h3>
           <p>Subscribe to our newsletter for the latest updates.</p>
-          <input
-            name="IfootEmail"
-            type="email"
-            placeholder="Enter your email"
-            className="subscribe-input"
-          />
-          <button type="button" className="subscribe-button">
-            Subscribe
-          </button>
+          <form action="" onSubmit={handleSubcribe}>
+            <input
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+              className="subscribe-input"
+              value={isSubscribe.email}
+              onChange={handleSubscribe}
+            />
+
+            <button type="submit" className="subscribe-button">
+              Subscribe
+            </button>
+          </form>
         </div>
       </footer>
     </>
