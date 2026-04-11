@@ -42,7 +42,38 @@ function FourthSection() {
       setTranslateX(currentIndex * slideWidth);
     }
   }, [currentIndex, maxIndex]);
+  const handleDots = (index) => {
+    setCurrentIndex(index);
+  };
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const miniSwipteDistance = 50;
 
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > miniSwipteDistance) {
+      setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    }
+    if (distance < -miniSwipteDistance) {
+      setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
+    }
+  };
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 599);
+  useEffect(() => {
+    const handleWidth = () => {
+      setIsMobile(window.innerWidth <= 599);
+    };
+    window.addEventListener("resize", handleWidth);
+    return () => window.removeEventListener("resize", handleWidth);
+  }, []);
   return (
     <>
       <section className="fourth-section">
@@ -52,6 +83,9 @@ function FourthSection() {
             className="gallery-wrapper"
             ref={trackRef}
             style={{ transform: `translateX(-${translateX}px)` }}
+            onTouchStart={isMobile ? onTouchStart : undefined}
+            onTouchMove={isMobile ? onTouchMove : undefined}
+            onTouchEnd={isMobile ? onTouchEnd : undefined}
           >
             {fourthSectionImage.map((image) => (
               <li className="gallery-image" key={image.name}>
@@ -63,7 +97,15 @@ function FourthSection() {
               </li>
             ))}
           </ul>
-          <div className="slider-dots"></div>
+          <div className="slider-dots">
+            {Array.from({ length: maxIndex + 1 }).map((_, index) => (
+              <button
+                key={index}
+                className={`${currentIndex === index ? "galleryActive" : ""}`}
+                onClick={() => handleDots(index)}
+              ></button>
+            ))}
+          </div>
         </div>
         <button type="button" className="prev" onClick={prevBtn}>
           ‹
