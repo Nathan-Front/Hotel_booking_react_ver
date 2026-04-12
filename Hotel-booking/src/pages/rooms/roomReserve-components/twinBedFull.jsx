@@ -1,16 +1,14 @@
-import "./reserve.css";
-import "./room-more-details/moreDetails.css";
 import {
   twinBedImg,
   summaryList,
   roomDescription,
   capacityCount,
   prices,
-} from "./data/twinBedSingle.js";
+} from "./data/twinBedFull.js";
 import { useState, useRef, useLayoutEffect } from "react";
-import TwinBedSingleMore from "./room-more-details/twinBedSingleMore.jsx";
+import TwinBedFullMore from "./room-more-details/twinBedFullMore.jsx";
 
-function TwinBedSingle() {
+function TwinBedFul() {
   const firstHalf = capacityCount.slice(0, 1);
   const secondHalf = capacityCount.slice(1);
 
@@ -40,12 +38,11 @@ function TwinBedSingle() {
   const handleTransitionEnd = () => {
     if (isOpen) setHeight("auto");
   };
-
   return (
     <>
-      <section className="reserve-section" id="twin-bed-single-rooms">
-        <h3>Twin Bed Single Standard</h3>
-        <p>*Suitable for two person</p>
+      <section className="reserve-section" id="twin-bed-full-rooms">
+        <h3>Twin Bed Full Standard</h3>
+        <p>*Suitable for two person on a seperate bed</p>
         <div
           ref={contentRef}
           className={`section-sub-wrapper ${isOpen ? "show-other-rooms" : ""}`}
@@ -59,7 +56,7 @@ function TwinBedSingle() {
                   key={img.name}
                   src={`${import.meta.env.BASE_URL}${img.src}`}
                   alt={`${img.name}-image`}
-                  className={`${img.name === "twin bed single" ? "main-picture" : ""}`}
+                  className={`${img.name === "twin bed full" ? "main-picture" : ""}`}
                 />
               ))}
             </div>
@@ -180,7 +177,7 @@ function TwinBedSingle() {
           <span className="triangle"></span>
         </button>
       </section>
-      <TwinBedSingleMore
+      <TwinBedFullMore
         isMoreDetails={isMoreDetails}
         setIsMoreDetails={setIsMoreDetails}
       />
@@ -188,4 +185,4 @@ function TwinBedSingle() {
   );
 }
 
-export default TwinBedSingle;
+export default TwinBedFul;

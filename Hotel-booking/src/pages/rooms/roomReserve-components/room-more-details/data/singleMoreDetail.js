@@ -9,8 +9,22 @@ export const twinBedSingleLeftImg = [
     {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.jpg"}
 ];
 
+export const twinBedFullLeftImg = [
+    {id: 1, src: "images/index/rooms/twinbed single.jpg"},
+    {id: 2, src: "images/rooms/reserve/twinbed single/white-pillow-bed.jpg"},
+    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.jpg"},
+    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.png"},
+    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.jpg"},
+    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.jpg"},
+    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.jpg"},
+    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.jpg"}
+];
+
 export const firstList = [
-    {name: "1 single bed(1.1m wide)", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg", alt: "bed"},
+    {name: "1 single bed (1.1m wide)", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg", alt: "bed"},
+];
+export const fullFirstList = [
+    {name: "2 single bed (1.1m wide)", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg", alt: "bed"},
 ];
 
 export const secondList = [
@@ -48,7 +62,7 @@ export const cleaningService = [
     {name: "Daily housekeeping"}
 ];
 export const internetCommunication = [
-    {name: "Wifi in room"},
+    {name: "Wifi in room have"},
     {name: "Telephone"},
     {name: "International calls none"},
 ];

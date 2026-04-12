@@ -1,7 +1,6 @@
-import "./moreDetails.css";
 import {
-  twinBedSingleLeftImg,
-  firstList,
+  twinBedFullLeftImg,
+  fullFirstList,
   secondList,
   toiletries,
   roomLayoutFurnish,
@@ -17,14 +16,13 @@ import {
   extras,
 } from "./data/singleMoreDetail.js";
 
-function TwinBedSingleMore({ isMoreDetails, setIsMoreDetails }) {
+function TwinBedFullMore({ isMoreDetails, setIsMoreDetails }) {
   if (isMoreDetails) {
     document.body.classList.add("no-scroll");
   } else {
     document.body.classList.remove("no-scroll");
     return null;
   }
-
   return (
     <>
       <div className={`lock-wrapper ${isMoreDetails === true ? "active" : ""}`}>
@@ -36,7 +34,7 @@ function TwinBedSingleMore({ isMoreDetails, setIsMoreDetails }) {
           </div>
           <div className="more-details-container">
             <div className="left-container">
-              {twinBedSingleLeftImg.map((item) => (
+              {twinBedFullLeftImg.map((item) => (
                 <img
                   key={item.id}
                   src={`${import.meta.env.BASE_URL}${item.src}`}
@@ -46,12 +44,12 @@ function TwinBedSingleMore({ isMoreDetails, setIsMoreDetails }) {
             </div>
             <div className="right-container">
               <div>
-                <h3>Twin Bed Single</h3>
+                <h3>Twin Bed Full</h3>
               </div>
               <div className="right-more-details-container">
                 <div>
                   <ul className="bed-image-wrapper">
-                    {firstList.map((item) => (
+                    {fullFirstList.map((item) => (
                       <li key={item.name}>
                         <img
                           className="more-logo"
@@ -371,4 +369,4 @@ function TwinBedSingleMore({ isMoreDetails, setIsMoreDetails }) {
   );
 }
 
-export default TwinBedSingleMore;
+export default TwinBedFullMore;
