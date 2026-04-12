@@ -9,7 +9,6 @@ function RoomsFourthSection() {
 
   const toggleFAQ = (index) => {
     setIsFaqIndex(isFaqIndex === index ? null : index);
-    console.log(index);
   };
 
   return (

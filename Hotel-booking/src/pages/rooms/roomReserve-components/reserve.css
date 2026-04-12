@@ -258,6 +258,10 @@ h4{
     padding: 20px 0;
     margin-left: 30px;
 }
+.price-main-wrapper> h3{
+    margin: 0;
+
+}
 @media only screen and (max-width: 540px){
     .right-panel-descript> li{
         gap: 3px;
@@ -354,17 +358,17 @@ h4{
     position: relative;
 }
 .triangle {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  margin-left: 8px;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 8px solid black;
-  transition: transform 0.3s ease;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 8px;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 8px solid black;
+    transition: transform 0.3s ease;
 }
 .more-rooms.active .triangle {
-  transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 @media only screen and (max-width: 540px){
     .more-rooms::after{

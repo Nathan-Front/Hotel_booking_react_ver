@@ -9,7 +9,7 @@ function RoomsSecondSection() {
         <ul className="rooms-room-wrapper">
           {roomOffer.map((room) => (
             <li className="rooms-room-panels" key={room.name}>
-              <Link href="reserve.html#twin-bed-single-rooms">
+              <Link to="/roomReserve">
                 <div className="rooms-room-images">
                   <img
                     src={`${import.meta.env.BASE_URL}${room.src}`}
