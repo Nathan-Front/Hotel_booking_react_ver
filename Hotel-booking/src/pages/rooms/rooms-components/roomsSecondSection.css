@@ -10,7 +10,7 @@
     flex-wrap: wrap;
 }
 .rooms-room-panels{
-    width: clamp(350px, 28vw, 450px);
+    width: clamp(300px, 28vw, 450px);
     margin: 0;
     display: flex;
     flex-direction: column;

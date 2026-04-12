@@ -33,7 +33,7 @@
 .faq-question {
     width: 90%;
     padding: 10px 5px;
-    font-size: clamp(1rem, 1.4vw, 1.7rem);
+    font-size: clamp(1rem, 1.2vw, 1.7rem);
     font-weight: bolder;
     background: transparent;
     border: none;
@@ -73,6 +73,9 @@
 @media only screen and (max-width: 330px){
     .faq-panels{
         width: clamp(300px, 45vw, 800px);
+    }
+    .faq-question::after{
+        display: none;
     }
 }
 @media (min-width: 331px) and (max-width: 599px){

@@ -1,5 +1,5 @@
 import "./roomsFourthSection.css";
-import { firstFAQs, secondFAQs } from "./data/roomsFourthSection";
+import { firstFAQs } from "./data/roomsFourthSection";
 import { useState } from "react";
 function RoomsFourthSection() {
   const firstHalf = firstFAQs.slice(0, 5);
