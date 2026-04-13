@@ -1,13 +1,13 @@
 import {
   doubleBedFullLeftImg,
   doubleBedList,
-  secondList,
+  secondListDouble,
   toiletries,
   roomLayoutFurnish,
   accessibility,
   cleaningService,
   internetCommunication,
-  doubleBedBathrooms,
+  bathrooms,
   foodDrinks,
   amenities,
   tvMedia,
@@ -63,14 +63,16 @@ function DoubleBedMore({ isMoreDetails, setIsMoreDetails }) {
                   </div>
                 ))}
                 <ul>
-                  {secondList.map((item) => (
+                  {secondListDouble.map((item) => (
                     <li key={item.name}>
                       <img
                         className="more-logo"
                         src={`${import.meta.env.BASE_URL}${item.src}`}
                         alt={`${item.name}-image`}
                       />
-                      <p>{item.name}</p>
+                      <p>
+                        {item.name} {item.name.includes("21") && <sup>2</sup>}
+                      </p>
                     </li>
                   ))}
                 </ul>
@@ -198,7 +200,7 @@ function DoubleBedMore({ isMoreDetails, setIsMoreDetails }) {
                 <div>
                   <h4>Bathrooms</h4>
                   <ul>
-                    {doubleBedBathrooms.map((item) => (
+                    {bathrooms.map((item) => (
                       <li
                         className={`${item.name.includes("none") ? "not-available" : ""}`}
                         key={item.name}
@@ -355,9 +357,9 @@ function DoubleBedMore({ isMoreDetails, setIsMoreDetails }) {
                   <h4>Cribs & Extra Beds</h4>
                   <ul className="last-item">
                     {doubleBedExtras.map((item) => (
-                      <li key={item.name}>
+                      <div key={item.name}>
                         <p>{item.name}</p>
-                      </li>
+                      </div>
                     ))}
                   </ul>
                 </div>

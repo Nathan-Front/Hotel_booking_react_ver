@@ -112,6 +112,9 @@ h4{
     align-items: center;
     gap: 10px;
 }
+.left-panel-descript> li> h4{
+    margin: auto 0;
+}
 .left-panel-descript> li> img{
     width: clamp(15px, 1.5vw, 30px);
 }

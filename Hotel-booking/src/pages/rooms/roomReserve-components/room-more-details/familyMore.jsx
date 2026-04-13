@@ -1,40 +1,41 @@
 import {
-  twinBedFullLeftImg,
-  fullFirstList,
-  secondList,
-  toiletries,
+  familyBedFullLeftImg,
+  familyBedList,
+  secondListFamily,
+  toiletriesFamily,
   roomLayoutFurnish,
   accessibility,
   cleaningService,
   internetCommunication,
-  bathrooms,
+  familyBathrooms,
   foodDrinks,
-  amenities,
+  familyAmenities,
   tvMedia,
   kitchen,
   generalAmenities,
-  extras,
+  familyBedExtras,
 } from "./data/singleMoreDetail.js";
 
-function TwinBedFullMore({ isMoreDetails, setIsMoreDetails }) {
+function FamilyMore({ isMoreDetails, setIsMoreDetails }) {
   if (isMoreDetails) {
     document.body.classList.add("no-scroll");
   } else {
     document.body.classList.remove("no-scroll");
     return null;
   }
+
   return (
     <>
-      <div className={`lock-wrapper ${isMoreDetails === true ? "active" : ""}`}>
+      <div className={`lock-wrapper ${isMoreDetails ? "active" : ""}`}>
         <div
-          className={`more-details-wrapper ${isMoreDetails === true ? "active" : ""}`}
+          className={`more-details-wrapper ${isMoreDetails ? "active" : ""}`}
         >
           <div className="close-button" onClick={() => setIsMoreDetails(false)}>
             X
           </div>
           <div className="more-details-container">
             <div className="left-container">
-              {twinBedFullLeftImg.map((item) => (
+              {familyBedFullLeftImg.map((item) => (
                 <img
                   key={item.id}
                   src={`${import.meta.env.BASE_URL}${item.src}`}
@@ -44,33 +45,34 @@ function TwinBedFullMore({ isMoreDetails, setIsMoreDetails }) {
             </div>
             <div className="right-container">
               <div>
-                <h3>Twin Bed Full</h3>
+                <h3>Family Suite</h3>
               </div>
               <div className="right-more-details-container">
-                <div>
-                  <ul className="bed-image-wrapper">
-                    {fullFirstList.map((item) => (
-                      <li key={item.name}>
+                {familyBedList.map((item) => (
+                  <div key={item.name}>
+                    <ul className="bed-image-wrapper">
+                      <li>
                         <img
                           className="more-logo"
                           src={`${import.meta.env.BASE_URL}${item.src}`}
-                          alt={`${item.alt}-image`}
+                          alt={`${item.name}-image`}
                         />
                         <p>{item.name}</p>
                       </li>
-                    ))}
-                  </ul>
-                </div>
+                    </ul>
+                    <p>{item.extra}</p>
+                  </div>
+                ))}
                 <ul>
-                  {secondList.map((item) => (
+                  {secondListFamily.map((item) => (
                     <li key={item.name}>
                       <img
                         className="more-logo"
                         src={`${import.meta.env.BASE_URL}${item.src}`}
-                        alt={`${item.name}-image`}
+                        alt={`${item.alt}-image`}
                       />
                       <p>
-                        {item.name} {item.name.includes("19") && <sup>2</sup>}
+                        {item.name} {item.name.includes("24.5") && <sup>2</sup>}
                       </p>
                     </li>
                   ))}
@@ -78,7 +80,7 @@ function TwinBedFullMore({ isMoreDetails, setIsMoreDetails }) {
                 <div>
                   <h4>Toiletries</h4>
                   <ul>
-                    {toiletries.map((item) => (
+                    {toiletriesFamily.map((item) => (
                       <li
                         className={`${item.name.includes("none") ? "not-available" : ""}`}
                         key={item.name}
@@ -199,7 +201,7 @@ function TwinBedFullMore({ isMoreDetails, setIsMoreDetails }) {
                 <div>
                   <h4>Bathrooms</h4>
                   <ul>
-                    {bathrooms.map((item) => (
+                    {familyBathrooms.map((item) => (
                       <li
                         className={`${item.name.includes("none") ? "not-available" : ""}`}
                         key={item.name}
@@ -251,7 +253,7 @@ function TwinBedFullMore({ isMoreDetails, setIsMoreDetails }) {
                 <div>
                   <h4>Room Ameneties</h4>
                   <ul>
-                    {amenities.map((item) => (
+                    {familyAmenities.map((item) => (
                       <li
                         className={`${item.name.includes("none") ? "not-available" : ""}`}
                         key={item.name}
@@ -354,13 +356,11 @@ function TwinBedFullMore({ isMoreDetails, setIsMoreDetails }) {
                 </div>
                 <div>
                   <h4>Cribs & Extra Beds</h4>
-                  <ul className="last-item">
-                    {extras.map((item) => (
-                      <div key={item.name}>
-                        <p>{item.name}</p>
-                      </div>
-                    ))}
-                  </ul>
+                  {familyBedExtras.map((item) => (
+                    <div key={item.name}>
+                      <p>{item.name}</p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -371,4 +371,4 @@ function TwinBedFullMore({ isMoreDetails, setIsMoreDetails }) {
   );
 }
 
-export default TwinBedFullMore;
+export default FamilyMore;

@@ -214,7 +214,16 @@ label{
 }
 @media only screen and (max-width: 599px){
     .reserveRoom-html{
-        flex-direction: column;
+        display: grid;
+        grid-template-rows: auto auto;
+    }
+    .form-section{
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+    .room-selected-summary{
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
     }
     .input-label-wrap,
     .select-payment,

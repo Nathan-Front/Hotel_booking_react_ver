@@ -9,6 +9,7 @@ import {
 } from "./data/twinBedSingle.js";
 import { useState, useRef, useLayoutEffect } from "react";
 import TwinBedSingleMore from "./room-more-details/twinBedSingleMore.jsx";
+import { Link } from "react-router-dom";
 
 function TwinBedSingle() {
   const firstHalf = capacityCount.slice(0, 1);
@@ -163,9 +164,9 @@ function TwinBedSingle() {
                       <p>Additional charges may apply</p>
                     </li>
                   </ul>
-                  <button type="button" className="reserve-room-button">
+                  <Link className="reserve-room-button" to={"/reserveRoomForm"}>
                     Reserve
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}

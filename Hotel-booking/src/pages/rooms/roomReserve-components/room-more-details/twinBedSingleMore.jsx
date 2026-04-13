@@ -71,7 +71,9 @@ function TwinBedSingleMore({ isMoreDetails, setIsMoreDetails }) {
                         src={`${import.meta.env.BASE_URL}${item.src}`}
                         alt={`${item.name}-image`}
                       />
-                      <p>{item.name}</p>
+                      <p>
+                        {item.name} {item.name.includes("19") && <sup>2</sup>}
+                      </p>
                     </li>
                   ))}
                 </ul>
@@ -356,9 +358,9 @@ function TwinBedSingleMore({ isMoreDetails, setIsMoreDetails }) {
                   <h4>Cribs & Extra Beds</h4>
                   <ul className="last-item">
                     {extras.map((item) => (
-                      <li key={item.name}>
+                      <div key={item.name}>
                         <p>{item.name}</p>
-                      </li>
+                      </div>
                     ))}
                   </ul>
                 </div>

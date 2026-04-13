@@ -8,7 +8,6 @@ export const twinBedSingleLeftImg = [
     {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.jpg"},
     {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.jpg"}
 ];
-
 export const twinBedFullLeftImg = [
     {id: 1, src: "images/index/rooms/twinbed single.jpg"},
     {id: 2, src: "images/rooms/reserve/twinbed single/white-pillow-bed.jpg"},
@@ -19,7 +18,6 @@ export const twinBedFullLeftImg = [
     {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.jpg"},
     {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.jpg"}
 ];
-
 export const doubleBedFullLeftImg = [
     {id: 1, src: "images/index/rooms/twinbed double.jpg"},
     {id: 2, src: "images/rooms/reserve/twinbedfull/fullBed1.jpg"},
@@ -30,7 +28,36 @@ export const doubleBedFullLeftImg = [
     {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.jpg"},
     {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.jpg"}
 ];
-
+export const queenBedFullLeftImg = [
+    {id: 1, src: "images/index/rooms/queenbed.jpeg"},
+    {id: 2, src: "images/rooms/reserve/more details/queenbed/bedAndchair.jpg"},
+    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.jpg"},
+    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.png"},
+    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.jpg"},
+    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.jpg"},
+    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.jpg"},
+    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.jpg"}
+];
+export const kingBedFullLeftImg = [
+    {id: 1, src: "images/index/rooms/kingbed.jpg"},
+    {id: 2, src: "images/rooms/reserve/more details/queenbed/bedAndchair.jpg"},
+    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.jpg"},
+    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.png"},
+    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.jpg"},
+    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.jpg"},
+    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.jpg"},
+    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.jpg"}
+];
+export const familyBedFullLeftImg = [
+    {id: 1, src: "images/index/rooms/familysuite.png"},
+    {id: 2, src: "images/rooms/secondSection/family-room.jpeg"},
+    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.jpg"},
+    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.png"},
+    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.jpg"},
+    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.jpg"},
+    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.jpg"},
+    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.jpg"}
+];
 
 export const firstList = [
     {name: "1 single bed (1.1m wide)", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg", alt: "bed"},
@@ -38,19 +65,59 @@ export const firstList = [
 export const fullFirstList = [
     {name: "2 single bed (1.1m wide)", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg", alt: "bed"},
 ];
-
 export const doubleBedList = [
-    {name: "1 single bed(1.95m wide)", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg", alt: "bed", extra: "Extra bed is available to some rooms. See person count in the selection to know which rooms are available for extra beds."},
+    {name: "1 single bed (1.95m wide)", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg", alt: "bed", extra: "Extra bed is available to some rooms. See person count in the selection to know which rooms are available for extra beds."},
 ];
+export const queenBedList = [
+    {name: "1 single bed (2.03m wide)", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg", alt: "bed", extra: "Extra bed is not available to this room type."},
+];
+export const kingBedList = [
+    {name: "1 single bed (2.5m wide)", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg", alt: "bed", extra: "Extra bed is available to this room type."},
+];
+export const familyBedList = [
+    {name: "2 rooms with 2 double bed (1.95m wide)", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg", alt: "bed", extra: "Extra beds are available to this room type."},
+];
+
 
 export const secondList = [
     {name: "Has window(s)", src: "images/rooms/reserve/logo/window-1-svgrepo-com.svg", alt: "window"},
     {name: "Non-smoking", src: "images/rooms/reserve/logo/no-smoking-svgrepo-com.svg", alt: "non-smoking"},
-    {name: "19m2", src: "images/rooms/reserve/logo/house-scale-svgrepo-com.svg", alt: "room width"},
+    {name: "19m", src: "images/rooms/reserve/logo/house-scale-svgrepo-com.svg", alt: "room width"},
     {name: "Free Wifi", src: "images/rooms/reserve/logo/wifi-focus-1039-svgrepo-com.svg", alt: "free wifi"},
     {name: "Air conditioning", src: "images/rooms/reserve/logo/air-conditioner-cooler-ac-air-conditioning-split-ac-conditioner-svgrepo-com.svg", alt: "air-con"},
     {name: "Private bathroom", src: "images/rooms/reserve/logo/bathtub-bold-svgrepo-com.svg", alt: "private bathroom"},
-    
+];
+export const secondListDouble = [
+    {name: "Has window(s)", src: "images/rooms/reserve/logo/window-1-svgrepo-com.svg", alt: "window"},
+    {name: "Non-smoking", src: "images/rooms/reserve/logo/no-smoking-svgrepo-com.svg", alt: "non-smoking"},
+    {name: "21m", src: "images/rooms/reserve/logo/house-scale-svgrepo-com.svg", alt: "room width"},
+    {name: "Free Wifi", src: "images/rooms/reserve/logo/wifi-focus-1039-svgrepo-com.svg", alt: "free wifi"},
+    {name: "Air conditioning", src: "images/rooms/reserve/logo/air-conditioner-cooler-ac-air-conditioning-split-ac-conditioner-svgrepo-com.svg", alt: "air-con"},
+    {name: "Private bathroom", src: "images/rooms/reserve/logo/bathtub-bold-svgrepo-com.svg", alt: "private bathroom"},
+];
+export const secondListQueen = [
+    {name: "Has window(s)", src: "images/rooms/reserve/logo/window-1-svgrepo-com.svg", alt: "window"},
+    {name: "Non-smoking", src: "images/rooms/reserve/logo/no-smoking-svgrepo-com.svg", alt: "non-smoking"},
+    {name: "23m", src: "images/rooms/reserve/logo/house-scale-svgrepo-com.svg", alt: "room width"},
+    {name: "Free Wifi", src: "images/rooms/reserve/logo/wifi-focus-1039-svgrepo-com.svg", alt: "free wifi"},
+    {name: "Air conditioning", src: "images/rooms/reserve/logo/air-conditioner-cooler-ac-air-conditioning-split-ac-conditioner-svgrepo-com.svg", alt: "air-con"},
+    {name: "Private bathroom", src: "images/rooms/reserve/logo/bathtub-bold-svgrepo-com.svg", alt: "private bathroom"},
+];
+export const secondListKing = [
+    {name: "Has window(s)", src: "images/rooms/reserve/logo/window-1-svgrepo-com.svg", alt: "window"},
+    {name: "Non-smoking", src: "images/rooms/reserve/logo/no-smoking-svgrepo-com.svg", alt: "non-smoking"},
+    {name: "24.5m", src: "images/rooms/reserve/logo/house-scale-svgrepo-com.svg", alt: "room width"},
+    {name: "Free Wifi", src: "images/rooms/reserve/logo/wifi-focus-1039-svgrepo-com.svg", alt: "free wifi"},
+    {name: "Air conditioning", src: "images/rooms/reserve/logo/air-conditioner-cooler-ac-air-conditioning-split-ac-conditioner-svgrepo-com.svg", alt: "air-con"},
+    {name: "Private bathroom", src: "images/rooms/reserve/logo/bathtub-bold-svgrepo-com.svg", alt: "private bathroom"},
+];
+export const secondListFamily = [
+    {name: "Has window(s)", src: "images/rooms/reserve/logo/window-1-svgrepo-com.svg", alt: "window"},
+    {name: "Non-smoking", src: "images/rooms/reserve/logo/no-smoking-svgrepo-com.svg", alt: "non-smoking"},
+    {name: "24.5m", src: "images/rooms/reserve/logo/house-scale-svgrepo-com.svg", alt: "room width"},
+    {name: "Free Wifi", src: "images/rooms/reserve/logo/wifi-focus-1039-svgrepo-com.svg", alt: "free wifi"},
+    {name: "Air conditioning", src: "images/rooms/reserve/logo/air-conditioner-cooler-ac-air-conditioning-split-ac-conditioner-svgrepo-com.svg", alt: "air-con"},
+    {name: "Private bathroom", src: "images/rooms/reserve/logo/bathtub-bold-svgrepo-com.svg", alt: "private bathroom"},
 ];
 
 export const toiletries = [
@@ -62,6 +129,39 @@ export const toiletries = [
     {name:"Bath soap none"}, 
     {name:"Shower cap none"}, 
     {name:"Comb none"}, 
+    {name:"Razor"}, 
+];
+export const toiletriesQueen = [
+    {name:"Toothbrushes"}, 
+    {name:"Toothpaste"}, 
+    {name:"Shampoo"}, 
+    {name:"Conditioner"}, 
+    {name:"Body wash"}, 
+    {name:"Bath soap"}, 
+    {name:"Shower cap none"}, 
+    {name:"Comb"}, 
+    {name:"Razor"}, 
+];
+export const toiletriesKing = [
+    {name:"Toothbrushes"}, 
+    {name:"Toothpaste"}, 
+    {name:"Shampoo"}, 
+    {name:"Conditioner"}, 
+    {name:"Body wash"}, 
+    {name:"Bath soap"}, 
+    {name:"Shower cap"}, 
+    {name:"Comb"}, 
+    {name:"Razor"}, 
+];
+export const toiletriesFamily = [
+    {name:"Toothbrushes"}, 
+    {name:"Toothpaste"}, 
+    {name:"Shampoo"}, 
+    {name:"Conditioner"}, 
+    {name:"Body wash"}, 
+    {name:"Bath soap"}, 
+    {name:"Shower cap"}, 
+    {name:"Comb"}, 
     {name:"Razor"}, 
 ];
 
@@ -94,8 +194,18 @@ export const bathrooms = [
     {name: "Hot water (24 hours)"},
     {name: "Slippers"},
 ];
-
-export const doubleBedBathrooms = [
+export const kingBathrooms = [
+    {name: "Private bathroom"},
+    {name: "Private toilet"},
+    {name: "Smart toilet"},
+    {name: "Hair dryer"},
+    {name: "Vanity mirror"},
+    {name: "Towels"},
+    {name: "Bath towels"},
+    {name: "Hot water (24 hours)"},
+    {name: "Slippers"},
+];
+export const familyBathrooms = [
     {name: "Private bathroom"},
     {name: "Private toilet"},
     {name: "Smart toilet"},
@@ -120,6 +230,14 @@ export const amenities = [
     {name: "Bedding: Duvet"},
     {name: "Air purifier none"},
 ];
+export const familyAmenities = [
+    {name: "Air conditioning"},
+    {name: "Heating"},
+    {name: "Blackout curtains"},
+    {name: "Rug"},
+    {name: "Bedding: Duvet"},
+    {name: "Air purifier"},
+];
 
 export const tvMedia = [
     {name: "TV"},
@@ -139,9 +257,17 @@ export const generalAmenities = [
 export const extras = [
     {name: "Extra beds and cribs are unavailable for this room type."}
 ];
-
 export const doubleBedExtras = [
     {name: "Extra bed is available to some rooms. See person count and bed size information."}
 ];
-
+export const queenBedExtras = [
+    {name: "Extra bed is not available to this room type."}
+];
+export const kingBedExtras = [
+    {name: "Extra bed is available to this room type."}
+];
+export const familyBedExtras = [
+    {name: "Extra beds are available to this room type."}
+];
+    
                         

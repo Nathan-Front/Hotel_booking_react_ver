@@ -1,16 +1,14 @@
-import "./reserve.css";
-import "./room-more-details/moreDetails.css";
 import {
-  doubleBedImg,
+  queenBedImg,
   summaryList,
   roomDescription,
   capacityCount,
   prices,
-} from "./data/doubleBed.js";
+} from "./data/queenBed.js";
 import { useState, useRef, useLayoutEffect } from "react";
-import DoubleBedMore from "./room-more-details/doubleBedMore.jsx";
+import QueenBedMore from "./room-more-details/queenBedMore.jsx";
 
-function DoubleBed() {
+function QueenBed() {
   const firstHalf = capacityCount.slice(0, 1);
   const secondHalf = capacityCount.slice(1);
 
@@ -24,7 +22,7 @@ function DoubleBed() {
   };
 
   const [isOpen, setIsOpen] = useState(false);
-  const [height, setHeight] = useState("450px");
+  const [height, setHeight] = useState("450px"); //Need to get css height to match
   const contentRef = useRef(null);
   useLayoutEffect(() => {
     if (isOpen) {
@@ -36,17 +34,16 @@ function DoubleBed() {
   }, [isOpen]);
 
   const toggleRooms = () => setIsOpen(!isOpen);
+
   const handleTransitionEnd = () => {
     if (isOpen) setHeight("auto");
   };
+
   return (
     <>
-      <section className="reserve-section" id="double-bed-rooms">
-        <h3>Double Bed (Deluxe)</h3>
-        <p>
-          *For someone who want a spacious bed. Some room have a small extra bed
-          suitable for children
-        </p>
+      <section className="reserve-section" id="queen-rooms">
+        <h3>Queen Bed Standard</h3>
+        <p>*Couples, or single adults who prefer extra room to stretch out</p>
         <div
           ref={contentRef}
           className={`section-sub-wrapper ${isOpen ? "show-other-rooms" : ""}`}
@@ -55,7 +52,7 @@ function DoubleBed() {
         >
           <div className="room-left-panel">
             <div className="left-panel-images">
-              {doubleBedImg.map((item) => (
+              {queenBedImg.map((item) => (
                 <img
                   key={item.name}
                   src={`${import.meta.env.BASE_URL}${item.src}`}
@@ -71,12 +68,12 @@ function DoubleBed() {
                     src={`${import.meta.env.BASE_URL}${item.src}`}
                     alt={`${item.name}-image`}
                   />
-                  {item.name === "Double Bed" ? (
+                  {item.name === "Queen Bed" ? (
                     <h4>{item.name}</h4>
                   ) : (
                     <p>
                       {item.name}
-                      {item.name.includes("21") && <sup>2</sup>}
+                      {item.name.includes("23") && <sup>2</sup>}
                     </p>
                   )}
                 </li>
@@ -100,13 +97,13 @@ function DoubleBed() {
               <h4>Today's Price</h4>
             </div>
             {prices.map((room) => (
-              <div className={`${room.name}-room-right-panel`} key={room.name}>
+              <div className={`${room.name}-room-right-panel`} key={room.room}>
                 <ul className="right-panel-descript">
                   {roomDescription.map((item) => (
                     <li key={item.name}>
                       <img
                         src={`${import.meta.env.BASE_URL}${item.src}`}
-                        alt={`${item.name}-image`}
+                        alt={`${item.name.includes("Optional") ? "breakfast" : item.name}-image`}
                       />
                       <p>{item.name}</p>
                     </li>
@@ -121,6 +118,7 @@ function DoubleBed() {
                       alt="person"
                     />
                   ))}
+
                   <span>～</span>
                   {secondHalf.map((item) => (
                     <img
@@ -130,13 +128,6 @@ function DoubleBed() {
                       alt="person"
                     />
                   ))}
-                  {(room.room === 301 || room.room === 302) && (
-                    <img
-                      className="person-children"
-                      src={`${import.meta.env.BASE_URL}images/rooms/reserve/logo/person.svg`}
-                      alt="person-children"
-                    />
-                  )}
                 </div>
                 <div className="price-main-wrapper">
                   <h3>Room: {room.room}</h3>
@@ -186,7 +177,7 @@ function DoubleBed() {
           <span className="triangle"></span>
         </button>
       </section>
-      <DoubleBedMore
+      <QueenBedMore
         isMoreDetails={isMoreDetails}
         setIsMoreDetails={setIsMoreDetails}
       />
@@ -194,4 +185,4 @@ function DoubleBed() {
   );
 }
 
-export default DoubleBed;
+export default QueenBed;
