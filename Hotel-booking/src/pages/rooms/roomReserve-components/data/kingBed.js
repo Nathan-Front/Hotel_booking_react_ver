@@ -29,11 +29,11 @@ export const capacityCount = [
 ];
 
 export const prices = [
-    {room: 401, name:"second", price:320, off: 0.10, tax: 0.12,},
-    {room: 402, name:"third", price:320, off: 0.0, tax: 0.12,},
-    {room: 403, name:"fourth", price:320, off: 0.0, tax: 0.12,},
-    {room: 404, name:"fifth", price:320, off: 0.0, tax: 0.12,},
-    {room: 405, name:"sixth", price:320, off: 0.0, tax: 0.12,},
-    {room: 406, name:"seventh", price:320, off: 0.0, tax: 0.12,},
-    {room: 407, name:"eigth", price:320, off: 0.0, tax: 0.12,},
+    {room: 501, name:"second", price:320, off: 0.10, tax: 0.12,},
+    {room: 502, name:"third", price:320, off: 0.0, tax: 0.12,},
+    {room: 503, name:"fourth", price:320, off: 0.0, tax: 0.12,},
+    {room: 504, name:"fifth", price:320, off: 0.0, tax: 0.12,},
+    {room: 505, name:"sixth", price:320, off: 0.0, tax: 0.12,},
+    {room: 506, name:"seventh", price:320, off: 0.0, tax: 0.12,},
+    {room: 507, name:"eigth", price:320, off: 0.0, tax: 0.12,},
 ]

@@ -7,6 +7,7 @@ import {
 } from "./data/queenBed.js";
 import { useState, useRef, useLayoutEffect } from "react";
 import QueenBedMore from "./room-more-details/queenBedMore.jsx";
+import { Link } from "react-router-dom";
 
 function QueenBed() {
   const firstHalf = capacityCount.slice(0, 1);
@@ -160,9 +161,9 @@ function QueenBed() {
                       <p>Additional charges may apply</p>
                     </li>
                   </ul>
-                  <button type="button" className="reserve-room-button">
+                  <Link className="reserve-room-button" to={"/reserveRoomForm"}>
                     Reserve
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}

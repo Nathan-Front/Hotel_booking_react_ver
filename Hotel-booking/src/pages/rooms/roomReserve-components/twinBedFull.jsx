@@ -9,6 +9,7 @@ import {
 } from "./data/twinBedFull.js";
 import { useState, useRef, useLayoutEffect } from "react";
 import TwinBedFullMore from "./room-more-details/twinBedFullMore.jsx";
+import { Link } from "react-router-dom";
 
 function TwinBedFul() {
   const firstHalf = capacityCount.slice(0, 1);
@@ -162,9 +163,9 @@ function TwinBedFul() {
                       <p>Additional charges may apply</p>
                     </li>
                   </ul>
-                  <button type="button" className="reserve-room-button">
+                  <Link className="reserve-room-button" to={"/reserveRoomForm"}>
                     Reserve
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}

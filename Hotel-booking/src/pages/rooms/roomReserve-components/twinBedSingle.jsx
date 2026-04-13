@@ -4,17 +4,14 @@ import {
   twinBedImg,
   summaryList,
   roomDescription,
-  capacityCount,
   prices,
+  roomReserved,
 } from "./data/twinBedSingle.js";
 import { useState, useRef, useLayoutEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import TwinBedSingleMore from "./room-more-details/twinBedSingleMore.jsx";
-import { Link } from "react-router-dom";
 
 function TwinBedSingle() {
-  const firstHalf = capacityCount.slice(0, 1);
-  const secondHalf = capacityCount.slice(1);
-
   const [isMoreDetails, setIsMoreDetails] = useState(false);
   const openMoreDetails = () => {
     if (isMoreDetails === false) {
@@ -40,6 +37,12 @@ function TwinBedSingle() {
 
   const handleTransitionEnd = () => {
     if (isOpen) setHeight("auto");
+  };
+
+  const navigate = useNavigate();
+  const handleNavigate = (room) => {
+    navigate("/reserveRoomForm");
+    roomReserved(room);
   };
 
   return (
@@ -113,21 +116,20 @@ function TwinBedSingle() {
                   ))}
                 </ul>
                 <div className="person-wrapper">
-                  {firstHalf.map((item) => (
+                  {Array.from({ length: 1 }).map((_, index) => (
                     <img
-                      key={item.id}
+                      key={index}
                       className="person"
-                      src={`${import.meta.env.BASE_URL}${item.src}`}
+                      src={`${import.meta.env.BASE_URL}images/rooms/reserve/logo/person.svg`}
                       alt="person"
                     />
                   ))}
-
                   <span>～</span>
-                  {secondHalf.map((item) => (
+                  {Array.from({ length: 2 }).map((_, index) => (
                     <img
-                      key={item.id}
+                      key={index}
                       className="person"
-                      src={`${import.meta.env.BASE_URL}${item.src}`}
+                      src={`${import.meta.env.BASE_URL}images/rooms/reserve/logo/person.svg`}
                       alt="person"
                     />
                   ))}
@@ -164,9 +166,13 @@ function TwinBedSingle() {
                       <p>Additional charges may apply</p>
                     </li>
                   </ul>
-                  <Link className="reserve-room-button" to={"/reserveRoomForm"}>
+                  <button
+                    type="button"
+                    className="reserve-room-button"
+                    onClick={() => handleNavigate(room)}
+                  >
                     Reserve
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))}

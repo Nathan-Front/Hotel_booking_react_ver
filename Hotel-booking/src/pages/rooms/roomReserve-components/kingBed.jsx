@@ -6,6 +6,7 @@ import {
 } from "./data/kingBed.js";
 import { useState, useRef, useLayoutEffect } from "react";
 import KingBedMore from "./room-more-details/kingBedMore.jsx";
+import { Link } from "react-router-dom";
 
 function KingBed() {
   const [isMoreDetails, setIsMoreDetails] = useState(false);
@@ -50,6 +51,7 @@ function KingBed() {
             <div className="left-panel-images">
               {kingBedImg.map((item) => (
                 <img
+                  key={item.name}
                   src={`${import.meta.env.BASE_URL}${item.src}`}
                   alt={`${item.name}-image`}
                   className="main-picture"
@@ -154,9 +156,9 @@ function KingBed() {
                       <p>Additional charges may apply</p>
                     </li>
                   </ul>
-                  <button type="button" className="reserve-room-button">
+                  <Link className="reserve-room-button" to={"/reserveRoomForm"}>
                     Reserve
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}

@@ -22,18 +22,19 @@ export const roomDescription = [
     {name: "Prepay online", src: "images/rooms/reserve/logo/payment.svg"}
 ];
 
-export const capacityCount = [
-    {id: 1, src: "images/rooms/reserve/logo/person.svg"},
-    {id: 2, src: "images/rooms/reserve/logo/person.svg"},
-    {id: 3, src: "images/rooms/reserve/logo/person.svg"}
+export const prices = [
+    {room: 101, name:"second", price:80, off: 0.10, tax: 0.12, special: 0.1},
+    {room: 102, name:"third", price:80, off: 0.10, tax: 0.12, special: 0.1},
+    {room: 103, name:"fourth", price:80, off: 0.10, tax: 0.12, special: 0.1},
+    {room: 104, name:"fifth", price:80, off: 0.10, tax: 0.12, special: 0.1},
+    {room: 105, name:"sixth", price:80, off: 0.0, tax: 0.12, special: 0.1},
+    {room: 106, name:"seventh", price:80, off: 0.0, tax: 0.12, special: 0.1},
+    {room: 107, name:"eigth", price:80, off: 0.0, tax: 0.12, special: 0.1}
 ];
 
-export const prices = [
-    {room: 101, name:"second", price:80, off: 0.10, tax: 0.12,},
-    {room: 102, name:"third", price:80, off: 0.10, tax: 0.12,},
-    {room: 103, name:"fourth", price:80, off: 0.10, tax: 0.12,},
-    {room: 104, name:"fifth", price:80, off: 0.10, tax: 0.12,},
-    {room: 105, name:"sixth", price:80, off: 0.0, tax: 0.12,},
-    {room: 106, name:"seventh", price:80, off: 0.0, tax: 0.12,},
-    {room: 107, name:"eigth", price:80, off: 0.0, tax: 0.12,}
-]
+export async function roomReserved(room) {
+    const reserve = JSON.parse(localStorage.getItem("reservedRoom")) || [];
+    if(!reserve) return;
+    reserve.push(room);
+    localStorage.setItem("reservedRoom", JSON.stringify(reserve));
+}

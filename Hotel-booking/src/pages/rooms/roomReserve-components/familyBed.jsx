@@ -6,6 +6,7 @@ import {
 } from "./data/familyBed.js";
 import { useState, useRef, useLayoutEffect } from "react";
 import FamilyMore from "./room-more-details/familyMore.jsx";
+import { Link } from "react-router-dom";
 
 function FamilyBed() {
   const [isMoreDetails, setIsMoreDetails] = useState(false);
@@ -154,9 +155,9 @@ function FamilyBed() {
                       <p>Additional charges may apply</p>
                     </li>
                   </ul>
-                  <button type="button" className="reserve-room-button">
+                  <Link className="reserve-room-button" to={"/reserveRoomForm"}>
                     Reserve
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}

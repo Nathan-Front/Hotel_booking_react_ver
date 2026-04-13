@@ -9,6 +9,7 @@ import {
 } from "./data/doubleBed.js";
 import { useState, useRef, useLayoutEffect } from "react";
 import DoubleBedMore from "./room-more-details/doubleBedMore.jsx";
+import { Link } from "react-router-dom";
 
 function DoubleBed() {
   const firstHalf = capacityCount.slice(0, 1);
@@ -169,9 +170,9 @@ function DoubleBed() {
                       <p>Additional charges may apply</p>
                     </li>
                   </ul>
-                  <button type="button" className="reserve-room-button">
+                  <Link className="reserve-room-button" to={"/reserveRoomForm"}>
                     Reserve
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
