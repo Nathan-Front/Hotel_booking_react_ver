@@ -1,16 +1,16 @@
 import "./reserve.css";
 import "./room-more-details/moreDetails.css";
 import {
-  twinBedImg,
+  doubleBedImg,
   summaryList,
   roomDescription,
   capacityCount,
   prices,
-} from "./data/twinBedFull.js";
+} from "./data/doubleBed.js";
 import { useState, useRef, useLayoutEffect } from "react";
-import TwinBedFullMore from "./room-more-details/twinBedFullMore.jsx";
+import DoubleBedMore from "./room-more-details/doubleBedMore.jsx";
 
-function TwinBedFul() {
+function DoubleBed() {
   const firstHalf = capacityCount.slice(0, 1);
   const secondHalf = capacityCount.slice(1);
 
@@ -24,7 +24,7 @@ function TwinBedFul() {
   };
 
   const [isOpen, setIsOpen] = useState(false);
-  const [height, setHeight] = useState("450px"); //Need to get css height to match
+  const [height, setHeight] = useState("450px");
   const contentRef = useRef(null);
   useLayoutEffect(() => {
     if (isOpen) {
@@ -36,15 +36,17 @@ function TwinBedFul() {
   }, [isOpen]);
 
   const toggleRooms = () => setIsOpen(!isOpen);
-
   const handleTransitionEnd = () => {
     if (isOpen) setHeight("auto");
   };
   return (
     <>
-      <section className="reserve-section" id="twin-bed-full-rooms">
-        <h3>Twin Bed Full Standard</h3>
-        <p>*Suitable for two person on a seperate bed</p>
+      <section className="reserve-section" id="double-bed-rooms">
+        <h3>Double Bed (Deluxe)</h3>
+        <p>
+          *For someone who want a spacious bed. Some room have a small extra bed
+          suitable for children
+        </p>
         <div
           ref={contentRef}
           className={`section-sub-wrapper ${isOpen ? "show-other-rooms" : ""}`}
@@ -53,12 +55,12 @@ function TwinBedFul() {
         >
           <div className="room-left-panel">
             <div className="left-panel-images">
-              {twinBedImg.map((img) => (
+              {doubleBedImg.map((item) => (
                 <img
-                  key={img.name}
-                  src={`${import.meta.env.BASE_URL}${img.src}`}
-                  alt={`${img.name}-image`}
-                  className={`${img.name === "twin bed full" ? "main-picture" : ""}`}
+                  key={item.name}
+                  src={`${import.meta.env.BASE_URL}${item.src}`}
+                  alt={`${item.name}-image`}
+                  className="main-picture"
                 />
               ))}
             </div>
@@ -69,12 +71,12 @@ function TwinBedFul() {
                     src={`${import.meta.env.BASE_URL}${item.src}`}
                     alt={`${item.name}-image`}
                   />
-                  {item.name === "Twin Bed (Single)" ? (
+                  {item.name === "Double bed" ? (
                     <h4>{item.name}</h4>
                   ) : (
                     <p>
                       {item.name}
-                      {item.name.includes("19") && <sup>2</sup>}
+                      {item.name.includes("23") && <sup>2</sup>}
                     </p>
                   )}
                 </li>
@@ -98,13 +100,13 @@ function TwinBedFul() {
               <h4>Today's Price</h4>
             </div>
             {prices.map((room) => (
-              <div className={`${room.name}-room-right-panel`} key={room.room}>
+              <div className={`${room.name}-room-right-panel`} key={room.name}>
                 <ul className="right-panel-descript">
                   {roomDescription.map((item) => (
                     <li key={item.name}>
                       <img
                         src={`${import.meta.env.BASE_URL}${item.src}`}
-                        alt={`${item.name.includes("Optional") ? "breakfast" : item.name}-image`}
+                        alt={`${item.name}-image`}
                       />
                       <p>{item.name}</p>
                     </li>
@@ -119,7 +121,6 @@ function TwinBedFul() {
                       alt="person"
                     />
                   ))}
-
                   <span>～</span>
                   {secondHalf.map((item) => (
                     <img
@@ -129,8 +130,14 @@ function TwinBedFul() {
                       alt="person"
                     />
                   ))}
+                  {(room.room === 301 || room.room === 302) && (
+                    <img
+                      className="person-children"
+                      src={`${import.meta.env.BASE_URL}images/rooms/reserve/logo/person.svg`}
+                      alt="person-children"
+                    />
+                  )}
                 </div>
-
                 <div className="price-main-wrapper">
                   <h3>Room: {room.room}</h3>
                   <ul className="price-wrapper">
@@ -179,7 +186,7 @@ function TwinBedFul() {
           <span className="triangle"></span>
         </button>
       </section>
-      <TwinBedFullMore
+      <DoubleBedMore
         isMoreDetails={isMoreDetails}
         setIsMoreDetails={setIsMoreDetails}
       />
@@ -187,4 +194,4 @@ function TwinBedFul() {
   );
 }
 
-export default TwinBedFul;
+export default DoubleBed;
