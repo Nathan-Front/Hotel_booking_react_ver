@@ -7,9 +7,10 @@ import {
   capacityCount,
   prices,
 } from "./data/doubleBed.js";
+import { roomReserved } from "./data/roomReserved.js";
 import { useState, useRef, useLayoutEffect } from "react";
 import DoubleBedMore from "./room-more-details/doubleBedMore.jsx";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function DoubleBed() {
   const firstHalf = capacityCount.slice(0, 1);
@@ -40,10 +41,17 @@ function DoubleBed() {
   const handleTransitionEnd = () => {
     if (isOpen) setHeight("auto");
   };
+
+  const navigate = useNavigate();
+  const handleNavigate = (room) => {
+    navigate("/reserveRoomForm");
+    roomReserved(room, summaryList[0].name, doubleBedImg[0].src);
+  };
+
   return (
     <>
       <section className="reserve-section" id="double-bed-rooms">
-        <h3>Double Bed (Deluxe)</h3>
+        <h3>{summaryList[0].name}</h3>
         <p>
           *For someone who want a spacious bed. Some room have a small extra bed
           suitable for children
@@ -140,7 +148,6 @@ function DoubleBed() {
                   )}
                 </div>
                 <div className="price-main-wrapper">
-                  <h3>Room: {room.room}</h3>
                   <ul className="price-wrapper">
                     <li className="special-price">
                       <p className="special-discount">Special Discount:</p>
@@ -170,9 +177,12 @@ function DoubleBed() {
                       <p>Additional charges may apply</p>
                     </li>
                   </ul>
-                  <Link className="reserve-room-button" to={"/reserveRoomForm"}>
+                  <button
+                    className="reserve-room-button"
+                    onClick={() => handleNavigate(room)}
+                  >
                     Reserve
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))}

@@ -14,3 +14,15 @@ export const otherPaymentImg = [
 export const policy = [
     {id:1, policy: " This booking cannot be modified, and no refund will be given if you cancel it after reservation. You'll be charged the cancellation fee if you don't check in. If you apply a discount to your booking, the cancellation fee will be based on the total you paid."}
 ];
+
+export function toFinalStep(isForm) {
+    const reseredInfo = JSON.parse(localStorage.getItem("reservedRoom")) || [];
+    if(!reseredInfo) {return {success: false}};
+    const mergeData = {
+        ...reseredInfo,
+        ...isForm
+    }
+    reseredInfo.push(mergeData);
+    localStorage.setItem("reservedRoom", JSON.stringify(reseredInfo));
+    return {success: true}
+}

@@ -4,9 +4,10 @@ import {
   roomDescription,
   prices,
 } from "./data/familyBed.js";
+import { roomReserved } from "./data/roomReserved.js";
 import { useState, useRef, useLayoutEffect } from "react";
 import FamilyMore from "./room-more-details/familyMore.jsx";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function FamilyBed() {
   const [isMoreDetails, setIsMoreDetails] = useState(false);
@@ -31,14 +32,19 @@ function FamilyBed() {
   }, [isOpen]);
 
   const toggleRooms = () => setIsOpen(!isOpen);
-
   const handleTransitionEnd = () => {
     if (isOpen) setHeight("auto");
+  };
+
+  const navigate = useNavigate();
+  const handleNavigate = (room) => {
+    navigate("/reserveRoomForm");
+    roomReserved(room, summaryList[0].name, familyBedImg[0].src);
   };
   return (
     <>
       <section className="reserve-section" id="family-rooms">
-        <h3>Family Suite</h3>
+        <h3>{summaryList[0].name}</h3>
         <p>*Please contact us if the family members are more than 6 person.</p>
         <div
           ref={contentRef}
@@ -125,7 +131,6 @@ function FamilyBed() {
                   ))}
                 </div>
                 <div className="price-main-wrapper">
-                  <h3>Room: {room.room}</h3>
                   <ul className="price-wrapper">
                     <li className="special-price">
                       <p className="special-discount">Special Discount:</p>
@@ -155,9 +160,12 @@ function FamilyBed() {
                       <p>Additional charges may apply</p>
                     </li>
                   </ul>
-                  <Link className="reserve-room-button" to={"/reserveRoomForm"}>
+                  <button
+                    className="reserve-room-button"
+                    onClick={() => handleNavigate(room)}
+                  >
                     Reserve
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))}

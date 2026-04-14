@@ -7,9 +7,10 @@ import {
   capacityCount,
   prices,
 } from "./data/twinBedFull.js";
+import { roomReserved } from "./data/roomReserved.js";
 import { useState, useRef, useLayoutEffect } from "react";
 import TwinBedFullMore from "./room-more-details/twinBedFullMore.jsx";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function TwinBedFul() {
   const firstHalf = capacityCount.slice(0, 1);
@@ -37,14 +38,20 @@ function TwinBedFul() {
   }, [isOpen]);
 
   const toggleRooms = () => setIsOpen(!isOpen);
-
   const handleTransitionEnd = () => {
     if (isOpen) setHeight("auto");
   };
+
+  const navigate = useNavigate();
+  const handleNavigate = (room) => {
+    navigate("/reserveRoomForm");
+    roomReserved(room, summaryList[0].name, twinBedImg[0].src);
+  };
+
   return (
     <>
       <section className="reserve-section" id="twin-bed-full-rooms">
-        <h3>Twin Bed Full Standard</h3>
+        <h3>{summaryList[0].name}</h3>
         <p>*Suitable for two person on a seperate bed</p>
         <div
           ref={contentRef}
@@ -133,7 +140,6 @@ function TwinBedFul() {
                 </div>
 
                 <div className="price-main-wrapper">
-                  <h3>Room: {room.room}</h3>
                   <ul className="price-wrapper">
                     <li className="special-price">
                       <p className="special-discount">Special Discount:</p>
@@ -163,9 +169,12 @@ function TwinBedFul() {
                       <p>Additional charges may apply</p>
                     </li>
                   </ul>
-                  <Link className="reserve-room-button" to={"/reserveRoomForm"}>
+                  <button
+                    className="reserve-room-button"
+                    onClick={() => handleNavigate(room)}
+                  >
                     Reserve
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))}

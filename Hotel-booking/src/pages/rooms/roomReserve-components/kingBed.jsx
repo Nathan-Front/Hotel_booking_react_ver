@@ -4,9 +4,10 @@ import {
   roomDescription,
   prices,
 } from "./data/kingBed.js";
+import { roomReserved } from "./data/roomReserved.js";
 import { useState, useRef, useLayoutEffect } from "react";
 import KingBedMore from "./room-more-details/kingBedMore.jsx";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function KingBed() {
   const [isMoreDetails, setIsMoreDetails] = useState(false);
@@ -31,15 +32,19 @@ function KingBed() {
   }, [isOpen]);
 
   const toggleRooms = () => setIsOpen(!isOpen);
-
   const handleTransitionEnd = () => {
     if (isOpen) setHeight("auto");
   };
 
+  const navigate = useNavigate();
+  const handleNavigate = (room) => {
+    navigate("/reserveRoomForm");
+    roomReserved(room, summaryList[0].name, kingBedImg[0].src);
+  };
   return (
     <>
       <section className="reserve-section" id="king-rooms">
-        <h3>King Bed Deluxe</h3>
+        <h3>{summaryList[0].name}</h3>
         <p>*Couples who want maximum space to spread out. With extra bed.</p>
         <div
           ref={contentRef}
@@ -126,7 +131,6 @@ function KingBed() {
                   ))}
                 </div>
                 <div className="price-main-wrapper">
-                  <h3>Room: {room.room}</h3>
                   <ul className="price-wrapper">
                     <li className="special-price">
                       <p className="special-discount">Special Discount:</p>
@@ -156,9 +160,12 @@ function KingBed() {
                       <p>Additional charges may apply</p>
                     </li>
                   </ul>
-                  <Link className="reserve-room-button" to={"/reserveRoomForm"}>
+                  <button
+                    className="reserve-room-button"
+                    onClick={() => handleNavigate(room)}
+                  >
                     Reserve
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))}

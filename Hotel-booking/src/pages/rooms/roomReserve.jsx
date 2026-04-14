@@ -12,6 +12,7 @@ const KingBed = lazy(() => import("./roomReserve-components/kingBed.jsx"));
 const FamilyBed = lazy(() => import("./roomReserve-components/familyBed.jsx"));
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+
 function RoomReserve() {
   const { hash } = useLocation();
 
@@ -26,6 +27,7 @@ function RoomReserve() {
       }, 100);
     }
   }, [hash]);
+
   return (
     <Suspense fallback={<div>Loading room details...</div>}>
       <TwinBedSingle />

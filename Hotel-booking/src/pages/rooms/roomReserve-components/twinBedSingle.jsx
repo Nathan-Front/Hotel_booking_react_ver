@@ -5,8 +5,8 @@ import {
   summaryList,
   roomDescription,
   prices,
-  roomReserved,
 } from "./data/twinBedSingle.js";
+import { roomReserved } from "./data/roomReserved.js";
 import { useState, useRef, useLayoutEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import TwinBedSingleMore from "./room-more-details/twinBedSingleMore.jsx";
@@ -42,13 +42,13 @@ function TwinBedSingle() {
   const navigate = useNavigate();
   const handleNavigate = (room) => {
     navigate("/reserveRoomForm");
-    roomReserved(room);
+    roomReserved(room, summaryList[0].name, twinBedImg[0].src);
   };
 
   return (
     <>
       <section className="reserve-section" id="twin-bed-single-rooms">
-        <h3>Twin Bed Single Standard</h3>
+        <h3>{summaryList[0].name}</h3>
         <p>*Suitable for two person</p>
         <div
           ref={contentRef}
@@ -136,7 +136,6 @@ function TwinBedSingle() {
                 </div>
 
                 <div className="price-main-wrapper">
-                  <h3>Room: {room.room}</h3>
                   <ul className="price-wrapper">
                     <li className="special-price">
                       <p className="special-discount">Special Discount:</p>

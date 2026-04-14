@@ -50,9 +50,15 @@ function Footer() {
       [name]: value,
     }));
   };
+
+  const [error, setError] = useState("");
   const handleSubcribe = (e) => {
     e.preventDefault();
     const mail = validateEmail(isSubscribe.email);
+    if (!mail) {
+      setError("Enter a valid email");
+      return;
+    }
     if (mail) {
       const result = subscribe(isSubscribe);
       if (result.success) {
@@ -128,14 +134,17 @@ function Footer() {
           <h3>Newsletter</h3>
           <p>Subscribe to our newsletter for the latest updates.</p>
           <form action="" onSubmit={handleSubcribe}>
-            <input
-              name="email"
-              type="email"
-              placeholder="Enter your email"
-              className="subscribe-input"
-              value={isSubscribe.email}
-              onChange={handleSubscribe}
-            />
+            <div>
+              <input
+                name="email"
+                type="email"
+                placeholder="Enter your email"
+                className={`subscribe-input ${error ? "error-border" : ""}`}
+                value={isSubscribe.email}
+                onChange={handleSubscribe}
+              />
+              {error && <small className="error">{error}</small>}
+            </div>
 
             <button type="submit" className="subscribe-button">
               Subscribe

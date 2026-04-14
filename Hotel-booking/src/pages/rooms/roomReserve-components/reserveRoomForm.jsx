@@ -1,5 +1,10 @@
 import "./reserveRoom.css";
-import { paymentImg, otherPaymentImg, policy } from "./data/reserveForm.js";
+import {
+  paymentImg,
+  otherPaymentImg,
+  policy,
+  toFinalStep,
+} from "./data/reserveForm.js";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState, useMemo } from "react";
@@ -30,7 +35,7 @@ function ReserveRoomForm() {
     const taxedPrice = price * reserve[0].tax;
     const specialPrice = price * reserve[0].special;
     const totalPrice = offPrice + taxedPrice + specialPrice;
-    return { priceOff, totalPrice };
+    return { specialPrice, totalPrice };
   }, [reserve, price]);
 
   const navigate = useNavigate();
@@ -38,25 +43,115 @@ function ReserveRoomForm() {
     navigate(-1);
     localStorage.removeItem("reservedRoom");
   };
+
+  const [isForm, setIsForm] = useState({
+    firstName: "",
+    familyName: "",
+    email: "",
+    contact: "",
+    payMethod: "",
+    cardHolder: "",
+    cardNumber: "",
+    cardExpiry: "",
+    cardCode: "",
+  });
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setIsForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const mergeData = {
+      ...isForm,
+      roomCount: roomCount,
+      checkIn: startDate.toISOString().split("T")[0],
+      checkOut: endDate.toISOString().split("T")[0],
+      nightsCount: nights,
+      discount: reserve[0].off * 100,
+      tax: reserve[0].tax * 100,
+      service: reserve[0].special,
+      totalPayment: totalPrice.totalPrice,
+      savedPrice: totalPrice.specialPrice,
+    };
+    if (roomCount === 0) {
+      alert("Select room count.");
+      return;
+    }
+    if (nights === 0) {
+      alert("Please select dates.");
+      return;
+    }
+    const isFormComplete = Object.values(isForm).every((value) => !!value);
+    if (!isFormComplete) {
+      alert("Please fill in all necessary details before proceeding!");
+      return;
+    }
+    const reserveData = toFinalStep(mergeData);
+    if (reserveData.success === true) {
+      const info = JSON.parse(localStorage.getItem("reservedRoom"));
+      alert(`Thank you ${info[1].firstName}! 
+Room type: ${info[0].roomType}
+Your reservation date: ${info[1].checkIn}～${info[1].checkOut}
+Selected room: ${info[1].roomCount} room${info[1].roomCount > 1 ? "s" : ""} 
+Total payment: $${Number(info[1].totalPayment).toFixed(2)}
+See next page for final process.`);
+      localStorage.removeItem("reservedRoom");
+      navigate(-1);
+    } else {
+      alert("Something went wrong.");
+    }
+  };
+
   return (
     <>
       <section className="reserveRoom-html" id="reserveRoom-wrapper">
         <form action="" id="final-step-form" className="form-section">
           <div className="input-label-wrap">
             <label htmlFor="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" required />
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              value={isForm.firstName}
+              onChange={handleInput}
+              required
+            />
           </div>
           <div className="input-label-wrap">
-            <label htmlFor="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" required />
+            <label htmlFor="lastName">Family Name:</label>
+            <input
+              type="text"
+              id="lastName"
+              name="familyName"
+              value={isForm.familyName}
+              onChange={handleInput}
+              required
+            />
           </div>
           <div className="input-label-wrap">
             <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" required />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={isForm.email}
+              onChange={handleInput}
+              required
+            />
           </div>
           <div className="input-label-wrap">
             <label htmlFor="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required />
+            <input
+              type="tel"
+              id="phone"
+              name="contact"
+              value={isForm.contact}
+              onChange={handleInput}
+              required
+            />
           </div>
 
           <div className="payment-methods">
@@ -66,8 +161,10 @@ function ReserveRoomForm() {
                 <input
                   type="radio"
                   id="creditCard"
-                  name="paymentMethod"
-                  value="creditCard"
+                  name="payMethod"
+                  value="credit card"
+                  checked={isForm.payMethod === "credit card"}
+                  onChange={handleInput}
                   required
                 />
                 <label htmlFor="creditCard">Credit Card/Debit card</label>
@@ -80,11 +177,35 @@ function ReserveRoomForm() {
                 ))}
               </div>
               <div className="card-info">
-                <input type="text" placeholder="Card Number" />
-                <input type="text" placeholder="Card Holder Name" />
+                <input
+                  type="text"
+                  placeholder="Card Number"
+                  name="cardNumber"
+                  value={isForm.cardNumber}
+                  onChange={handleInput}
+                />
+                <input
+                  type="text"
+                  placeholder="Card Holder Name"
+                  name="cardHolder"
+                  value={isForm.cardHolder}
+                  onChange={handleInput}
+                />
                 <div className="expiry-cvv">
-                  <input type="date" placeholder="Expiry Date (MM/YY)" />
-                  <input type="text" placeholder="CVV" />
+                  <input
+                    type="date"
+                    placeholder="Expiry Date (MM/YY)"
+                    name="cardExpiry"
+                    value={isForm.cardExpiry}
+                    onChange={handleInput}
+                  />
+                  <input
+                    type="text"
+                    placeholder="CVV"
+                    name="cardCode"
+                    value={isForm.cardCode}
+                    onChange={handleInput}
+                  />
                 </div>
               </div>
             </div>
@@ -92,8 +213,10 @@ function ReserveRoomForm() {
               <input
                 type="radio"
                 id="paypal"
-                name="paymentMethod"
+                name="payMethod"
                 value="paypal"
+                checked={isForm.payMethod === "paypal"}
+                onChange={handleInput}
                 required
               />
               <label htmlFor="paypal">Other payment method</label>
@@ -114,7 +237,11 @@ function ReserveRoomForm() {
             >
               Cancel Reservation
             </button>
-            <button type="submit" className="final-step-button">
+            <button
+              type="submit"
+              className="final-step-button"
+              onClick={handleSubmit}
+            >
               Final Step
             </button>
           </div>
@@ -123,11 +250,11 @@ function ReserveRoomForm() {
         <div className="room-selected-summary">
           <div className="selected-room-wrapper">
             <img
-              src="./images/rooms/secondSection/family-room.jpeg"
+              src={`${import.meta.env.BASE_URL}${reserve[0]?.roomImage}`}
               alt="reserved room image"
               id="reserve-image"
             />
-            <h2 className="selected-room-type">Room Selected</h2>
+            <h2 className="selected-room-type">{reserve[0]?.roomType}</h2>
           </div>
           <div className="date-selection-wrapper">
             <h4>
@@ -172,23 +299,23 @@ function ReserveRoomForm() {
             <div>
               <p>
                 <span className="room-count">{`${roomCount} Room${roomCount > 1 ? "s" : ""} `}</span>
-                <span className="night-count">{`${nights} Room${nights > 1 ? "s" : ""} `}</span>
+                <span className="night-count">{`${nights} Night${nights > 1 ? "s" : ""} `}</span>
               </p>
               <p>
                 Price before discounts:{" "}
-                <span className="price-before-discounts">{price}</span>
+                <span className="price-before-discounts">{price || 0}</span>
               </p>
               <p>
                 Special discounts:{" "}
                 <span className="special-discounts">
-                  {reserve[0].off !== 0 ? reserve[0].off * 100 : 0}%
+                  {reserve[0]?.off !== 0 ? reserve[0]?.off * 100 : 0}%
                 </span>
               </p>
             </div>
             <div>
               <p>Tax & Fees</p>
               <p>
-                Vat: <span className="vat">{reserve[0].tax * 100}%</span>
+                Vat: <span className="vat">{reserve[0]?.tax * 100}%</span>
               </p>
               <p>
                 Service charge: <span className="service-price">10%</span>
@@ -204,7 +331,7 @@ function ReserveRoomForm() {
               <p>
                 You saved $
                 <span className="total-saved">
-                  {totalPrice.length !== 0 ? totalPrice.priceOff : 0}
+                  {totalPrice.length !== 0 ? totalPrice.specialPrice : 0}
                 </span>
               </p>
             </div>

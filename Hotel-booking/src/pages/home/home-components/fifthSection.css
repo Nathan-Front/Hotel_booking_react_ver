@@ -23,6 +23,16 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     border-radius: 0.25em;
 }
+.form-map-wrapper> form> div{
+    position: relative;
+}
+.form-map-wrapper> form> div>input{
+    width: 100%;
+    padding: 10px 5px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 0.25em;
+}
 .form-map-wrapper> form> textarea{
     padding: 10px 5px;
     border: none;
@@ -46,6 +56,16 @@ iframe{
     height: 280px;
     border: 0; 
     border-radius: 16px;
+}
+.error {
+  color: red;
+  font-size: 0.7rem;
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+}
+.email-input.error-border {
+  border: 2px solid red;
 }
 @media only screen and (max-width: 599px){
     .fifth-section{

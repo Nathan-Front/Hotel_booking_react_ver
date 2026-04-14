@@ -5,7 +5,7 @@ export const twinBedImg = [
 ];
 
 export const summaryList = [
-    {name: "Twin Bed (Single)", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg"},
+    {name: "Twin Bed (Single) Standard", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg"},
     {name: "Has window(s)", src: "images/rooms/reserve/logo/window-1-svgrepo-com.svg"},
     {name: "Non-smoking", src: "images/rooms/reserve/logo/no-smoking-svgrepo-com.svg"},
     {name: "19m", src: "images/rooms/reserve/logo/house-scale-svgrepo-com.svg"},
@@ -32,9 +32,3 @@ export const prices = [
     {room: 107, name:"eigth", price:80, off: 0.0, tax: 0.12, special: 0.1}
 ];
 
-export async function roomReserved(room) {
-    const reserve = JSON.parse(localStorage.getItem("reservedRoom")) || [];
-    if(!reserve) return;
-    reserve.push(room);
-    localStorage.setItem("reservedRoom", JSON.stringify(reserve));
-}

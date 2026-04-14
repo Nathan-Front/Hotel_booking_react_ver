@@ -1,6 +1,7 @@
 import "./fifthSection.css";
 import { useState } from "react";
 import { submitMessage } from "../../../assets/script/index.js";
+import { validateEmail } from "../../../assets/script/validateEmail.js";
 function FifthSection() {
   const [inputMessage, setInputMessage] = useState({
     customer: "",
@@ -17,8 +18,15 @@ function FifthSection() {
     }));
   };
 
+  const [error, setError] = useState("");
   const submitForm = (e) => {
     e.preventDefault();
+    setError("");
+    const checkEmail = validateEmail(inputMessage.email);
+    if (!checkEmail) {
+      setError("Enter a valid email");
+      return;
+    }
     const success = submitMessage(inputMessage);
     if (success.success) {
       alert("Message received, thank you for your message.");
@@ -47,14 +55,18 @@ function FifthSection() {
               value={inputMessage.customer}
               onChange={handleInput}
             />
-            <input
-              type="text"
-              name="email"
-              placeholder="Your Email"
-              required
-              value={inputMessage.email}
-              onChange={handleInput}
-            />
+            <div className="email-input-wrap">
+              <input
+                type="text"
+                className={`email-input ${error ? "error-border" : ""}`}
+                name="email"
+                placeholder="Your Email"
+                required
+                value={inputMessage.email}
+                onChange={handleInput}
+              />
+            </div>
+
             <input
               type="text"
               name="contact"

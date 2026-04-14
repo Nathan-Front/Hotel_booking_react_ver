@@ -5,7 +5,7 @@ export const twinBedImg = [
 ];
 
 export const summaryList = [
-    {name: "Twin Bed (Single)", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg"},
+    {name: "Twin Bed (Full) Standard", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg"},
     {name: "Has window(s)", src: "images/rooms/reserve/logo/window-1-svgrepo-com.svg"},
     {name: "Non-smoking", src: "images/rooms/reserve/logo/no-smoking-svgrepo-com.svg"},
     {name: "19m", src: "images/rooms/reserve/logo/house-scale-svgrepo-com.svg"},

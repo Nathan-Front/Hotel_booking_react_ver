@@ -5,9 +5,10 @@ import {
   capacityCount,
   prices,
 } from "./data/queenBed.js";
+import { roomReserved } from "./data/roomReserved.js";
 import { useState, useRef, useLayoutEffect } from "react";
 import QueenBedMore from "./room-more-details/queenBedMore.jsx";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function QueenBed() {
   const firstHalf = capacityCount.slice(0, 1);
@@ -40,10 +41,15 @@ function QueenBed() {
     if (isOpen) setHeight("auto");
   };
 
+  const navigate = useNavigate();
+  const handleNavigate = (room) => {
+    navigate("/reserveRoomForm");
+    roomReserved(room, summaryList[0].name, queenBedImg[0].src);
+  };
   return (
     <>
       <section className="reserve-section" id="queen-rooms">
-        <h3>Queen Bed Standard</h3>
+        <h3>{summaryList[0].name}</h3>
         <p>*Couples, or single adults who prefer extra room to stretch out</p>
         <div
           ref={contentRef}
@@ -131,7 +137,6 @@ function QueenBed() {
                   ))}
                 </div>
                 <div className="price-main-wrapper">
-                  <h3>Room: {room.room}</h3>
                   <ul className="price-wrapper">
                     <li className="special-price">
                       <p className="special-discount">Special Discount:</p>
@@ -161,9 +166,12 @@ function QueenBed() {
                       <p>Additional charges may apply</p>
                     </li>
                   </ul>
-                  <Link className="reserve-room-button" to={"/reserveRoomForm"}>
+                  <button
+                    className="reserve-room-button"
+                    onClick={() => handleNavigate(room)}
+                  >
                     Reserve
-                  </Link>
+                  </button>
                 </div>
               </div>
             ))}

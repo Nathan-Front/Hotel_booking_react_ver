@@ -13,7 +13,12 @@ function RoomsSecondSection() {
   const navigate = useNavigate();
   const goToLink = (index) => {
     const clickedIndex = childLink[index].link;
-    navigate(`/roomReserve#${clickedIndex}`);
+    const reserveExist = JSON.parse(localStorage.getItem("reservedRoom")) || [];
+    if (reserveExist.length > 0) {
+      navigate("/reserveRoomForm");
+    } else {
+      navigate(`/roomReserve#${clickedIndex}`);
+    }
   };
   return (
     <>

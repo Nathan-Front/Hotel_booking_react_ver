@@ -5,7 +5,7 @@ export const familyBedImg = [
 ];
 
 export const summaryList = [
-    {name: "King Bed", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg"},
+    {name: "Family Suite", src: "images/rooms/reserve/logo/bed-6-svgrepo-com.svg"},
     {name: "Has window(s)", src: "images/rooms/reserve/logo/window-1-svgrepo-com.svg"},
     {name: "Non-smoking", src: "images/rooms/reserve/logo/no-smoking-svgrepo-com.svg"},
     {name: "45m", src: "images/rooms/reserve/logo/house-scale-svgrepo-com.svg"},
@@ -23,11 +23,11 @@ export const roomDescription = [
 ];
 
 export const prices = [
-    {room: 601, name:"second", price:320, off: 0.10, tax: 0.12,},
-    {room: 602, name:"third", price:320, off: 0.0, tax: 0.12,},
-    {room: 603, name:"fourth", price:320, off: 0.0, tax: 0.12,},
-    {room: 604, name:"fifth", price:320, off: 0.0, tax: 0.12,},
-    {room: 605, name:"sixth", price:320, off: 0.0, tax: 0.12,},
-    {room: 606, name:"seventh", price:320, off: 0.0, tax: 0.12,},
-    {room: 607, name:"eigth", price:320, off: 0.0, tax: 0.12,},
+    {room: 601, name:"second", price:320, off: 0.10, tax: 0.12, special: 0.1},
+    {room: 602, name:"third", price:320, off: 0.0, tax: 0.12, special: 0.1},
+    {room: 603, name:"fourth", price:320, off: 0.0, tax: 0.12, special: 0.1},
+    {room: 604, name:"fifth", price:320, off: 0.0, tax: 0.12, special: 0.1},
+    {room: 605, name:"sixth", price:320, off: 0.0, tax: 0.12, special: 0.1},
+    {room: 606, name:"seventh", price:320, off: 0.0, tax: 0.12, special: 0.1},
+    {room: 607, name:"eigth", price:320, off: 0.0, tax: 0.12, special: 0.1},
 ]
