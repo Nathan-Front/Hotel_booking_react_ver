@@ -17,12 +17,14 @@
 .index-room-wrapper{
     height: auto;
     margin: 0 auto;
-    display: flex;
     gap: 2em;
     flex-wrap: wrap;
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 .index-room-panels{
-    width: clamp(350px, 28vw, 450px);
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;

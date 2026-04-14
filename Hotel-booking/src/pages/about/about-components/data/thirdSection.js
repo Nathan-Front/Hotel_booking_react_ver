@@ -1,0 +1,7 @@
+export const timeline = [
+    {year: "2007", src: "images/about/thirdSection/opening.png", alt: "opening", text: "The hotel officially opened its doors with 80 luxury rooms, a signature restaurant, and a commitment to world-class service. Within the first year, it became a preferred stay for business travelers and tourists alike"},
+    {year: "2012", src: "images/about/thirdSection/renovate.png", alt: "renovation", text: "Due to growing demand, a new wing was added, increasing capacity to 140 rooms."},
+    {year: "2018", src: "images/about/thirdSection/booking.png", alt: "booking", text: "Online booking systems were upgraded, mobile check-in was introduced, and smart concierge services were added to enhance convenience and personalization."},
+    {year: "2020", src: "images/about/thirdSection/room1.jpeg", alt: "hotel room", text: "All guest rooms were redesigned with contemporary interiors, smart room technology, and enhanced comfort features. Guest satisfaction ratings reached an all-time high."},
+    {year: "2026", src: "images/index/about/about2.jpg", alt: "front desk", text: "With almost two decades of hospitality excellence, the hotel continues to innovate while staying true to its founding values: comfort, elegance, and genuine service."},
+];

@@ -5,7 +5,7 @@ function Navigations() {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Rooms", path: "/rooms" },
-    { name: "About", path: "/" },
+    { name: "About", path: "/about" },
     { name: "Contact", path: "/" },
   ];
   return (
