@@ -1,5 +1,5 @@
 import "./reserveRoom.css";
-import { paymentImg, otherPaymentImg } from "./data/reserveForm.js";
+import { paymentImg, otherPaymentImg, policy } from "./data/reserveForm.js";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState, useMemo } from "react";
@@ -17,7 +17,7 @@ function ReserveRoomForm() {
   const reserve = useMemo(() => {
     try {
       return JSON.parse(localStorage.getItem("reservedRoom")) || [];
-    } catch (e) {
+    } catch {
       return [];
     }
   }, []);
@@ -211,12 +211,7 @@ function ReserveRoomForm() {
           </div>
           <div className="cancelation-wrap">
             <h3>Cancelation Policy</h3>
-            <p>
-              This booking cannot be modified, and no refund will be given if
-              you cancel it. You'll be charged the cancellation fee if you don't
-              check in. If you apply a discount to your booking, the
-              cancellation fee will be based on the total you paid.
-            </p>
+            <p>{policy[0].policy}</p>
           </div>
         </div>
       </section>

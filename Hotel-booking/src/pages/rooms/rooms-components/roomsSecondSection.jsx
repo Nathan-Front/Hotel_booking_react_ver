@@ -1,15 +1,32 @@
 import "./roomsSecondSection.css";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { roomOffer } from "./data/roomsSecondSection.js";
 function RoomsSecondSection() {
+  const childLink = [
+    { link: "twin-bed-single-rooms" },
+    { link: "twin-bed-full-rooms" },
+    { link: "double-bed-rooms" },
+    { link: "queen-rooms" },
+    { link: "king-rooms" },
+    { link: "family-rooms" },
+  ];
+  const navigate = useNavigate();
+  const goToLink = (index) => {
+    const clickedIndex = childLink[index].link;
+    navigate(`/roomReserve#${clickedIndex}`);
+  };
   return (
     <>
       <section className="rooms-second-section">
         <h2>Rooms</h2>
         <ul className="rooms-room-wrapper">
-          {roomOffer.map((room) => (
-            <li className="rooms-room-panels" key={room.name}>
-              <Link to="/roomReserve">
+          {roomOffer.map((room, index) => (
+            <li
+              className="rooms-room-panels"
+              key={room.id}
+              onClick={() => goToLink(index)}
+            >
+              <div>
                 <div className="rooms-room-images">
                   <img
                     src={`${import.meta.env.BASE_URL}${room.src}`}
@@ -19,7 +36,7 @@ function RoomsSecondSection() {
                 </div>
                 <h3>{room.name}</h3>
                 <p>${room.price} per night</p>
-              </Link>
+              </div>
             </li>
           ))}
         </ul>

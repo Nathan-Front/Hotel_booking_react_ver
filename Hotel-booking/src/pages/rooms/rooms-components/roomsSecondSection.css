@@ -19,7 +19,7 @@
     overflow: hidden;
     border-radius: 0.25em;
 }
-.rooms-room-panels>a{
+.rooms-room-panels>div{
     display: flex;
     flex-direction: column;
 }
@@ -41,13 +41,13 @@
     transform-origin: center;
     transition: transform 0.5s ease;
 }
-.rooms-room-panels> a> h3{
+.rooms-room-panels> div> h3{
     font-size: clamp(1.2rem, 1.8vw, 2rem);
     text-align: center;
     margin: 0;
     padding: 20px 0;
 }
-.rooms-room-panels> a> p{
+.rooms-room-panels> div> p{
     font-size: clamp(1rem, 1.5vw, 1.7rem);
     text-align: center;
     padding-bottom: clamp(20px, 2vw, 30px);
