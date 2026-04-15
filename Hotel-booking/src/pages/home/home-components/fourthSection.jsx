@@ -3,8 +3,10 @@ import { fourthSectionImage } from "./data/fourthSection";
 import { useState, useEffect, useRef } from "react";
 function FourthSection() {
   const [currentImg, setCurrentImg] = useState(4);
+  const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
     const handleImagePreview = () => {
+      setCurrentIndex(0);
       if (window.innerWidth <= 599) {
         setCurrentImg(2);
       } else if (window.innerWidth <= 768) {
@@ -19,7 +21,6 @@ function FourthSection() {
   }, [currentImg]);
 
   const maxIndex = Math.max(0, fourthSectionImage.length - currentImg);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const nxtBtn = () => {
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));

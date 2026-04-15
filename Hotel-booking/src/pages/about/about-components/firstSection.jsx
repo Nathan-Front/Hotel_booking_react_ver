@@ -16,11 +16,13 @@ function FirstSection() {
               className="about-banner"
               src={`${import.meta.env.BASE_URL}images/about/firstSection/male-receptionist-suit-offering-room-key.jpg`}
               alt="receptionist"
+              loading="eager"
             />
             <img
               className="about-enjoying"
               src={`${import.meta.env.BASE_URL}images/about/firstSection/enjoyingCircle.png`}
               alt="enjoying image"
+              loading="eager"
             />
           </div>
         </div>

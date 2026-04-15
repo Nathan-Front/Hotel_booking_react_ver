@@ -75,6 +75,11 @@
     padding: 0;
 }
 @media only screen and (max-width: 540px){
+    .reserve-button-section{
+        display: flex;
+        flex-direction: column;
+        padding: 50px 30px;
+    }
     .reserve-section{
         flex-direction: column;
         padding: 50px 0;
@@ -84,5 +89,8 @@
         width: 95%;
         margin: 0 auto;
         text-align: center;
+    }
+    .about-reserve-button{
+        margin-top: 30px;
     }
 }
