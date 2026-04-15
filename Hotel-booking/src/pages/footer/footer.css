@@ -71,6 +71,7 @@ footer{
   border: 2px solid red;
 }
 @media only screen and (max-width: 540px){
+   
     .footer-panels:nth-child(2){
         display: none;
     }

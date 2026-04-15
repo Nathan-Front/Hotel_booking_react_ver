@@ -1,6 +1,7 @@
 import "./firstSection.css";
 import { firstSectionImg } from "./data/firstSection";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 function FirstSection() {
   const [currentImg, setCurrentImg] = useState(0);
   useEffect(() => {
@@ -36,9 +37,9 @@ function FirstSection() {
             Your comfort is our priority. Experience luxury and relaxation at
             its finest.
           </p>
-          <button type="button" className="book-button">
+          <Link type="button" className="book-button" to={"/roomReserve"}>
             Book Now
-          </button>
+          </Link>
         </div>
       </section>
     </>

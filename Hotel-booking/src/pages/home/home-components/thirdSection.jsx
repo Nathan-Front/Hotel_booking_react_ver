@@ -1,5 +1,5 @@
 import "./thirdSection.css";
-
+import { Link } from "react-router-dom";
 function ThirdSection() {
   return (
     <>
@@ -17,9 +17,9 @@ function ThirdSection() {
             blanditiis, accusamus maiores hic voluptas itaque fugiat eligendi
             tempore.
           </p>
-          <button type="button" className="to-about-us-button">
+          <Link className="to-about-us-button" to={"/about"}>
             Read more
-          </button>
+          </Link>
         </div>
         <img
           src={`${import.meta.env.BASE_URL}images/index/about/about1.jpg`}

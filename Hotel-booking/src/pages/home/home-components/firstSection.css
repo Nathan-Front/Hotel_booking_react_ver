@@ -64,6 +64,7 @@
   color: rgb(31, 52, 55);
   border-radius: 0.25em;
   box-shadow: 5px 5px 5px;
+  display: inline-block;
   margin-top: 20px;
 }
 .book-button:hover{

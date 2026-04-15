@@ -143,7 +143,6 @@ function Footer() {
                 value={isSubscribe.email}
                 onChange={handleSubscribe}
               />
-              {error && <small className="error">{error}</small>}
             </div>
 
             <button type="submit" className="subscribe-button">

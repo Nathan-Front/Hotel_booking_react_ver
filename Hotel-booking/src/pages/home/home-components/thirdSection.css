@@ -6,6 +6,9 @@
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
     border-radius: 0.25em;
 }
+.to-about-us-button{
+    margin: 20px 0 0 0;
+}
 @media only screen and (max-width: 768px){
     .third-section{
         flex-direction: column;
