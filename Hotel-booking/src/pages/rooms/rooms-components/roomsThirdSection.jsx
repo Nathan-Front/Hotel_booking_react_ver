@@ -1,5 +1,5 @@
 import "./roomsThirdSection.css";
-import { mostBooked } from "./data/roomsThirdSection";
+import { mostBooked } from "./data/roomsThirdSection.js";
 function RoomsThirdSection() {
   return (
     <>

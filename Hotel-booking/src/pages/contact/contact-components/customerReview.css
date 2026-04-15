@@ -86,14 +86,14 @@
     gap: 5px;
     margin-bottom: 10px;    
 }
-.review-dots> button{
+.review-dots> span{
     display: inline-block;
     width: 30px;
     height: 15px;
     border-radius: 0.25em;
     border: 2px gray solid;
 }
-.review-dots> button.review-Active{
+.review-dots> span.review-Active{
     background-color: rgb(227, 146, 32);
 }
 @media only screen and (max-width: 599px){

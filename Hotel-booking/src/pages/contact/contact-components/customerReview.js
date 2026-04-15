@@ -1,0 +1,7 @@
+export const review = [
+    {name: "Daniel", src: "images/contact/customerReview/image-daniel.jpg", message: "I recently stayed at this hotel for three nights, and it was an absolutely wonderful experience from start to finish. The check-in process was smooth and welcoming, and the front desk staff were professional, friendly, and very accommodating."},
+    {name: "Jonathan", src: "images/contact/customerReview/image-jonathan.jpg", message: "The room was spotless, spacious, and beautifully designed. The bed was extremely comfortable, and I appreciated the small touches like complimentary toiletries, bottled water, and fast Wi-Fi. Housekeeping did an excellent job keeping everything fresh and tidy each day."},
+    {name: "Jeanette", src: "images/contact/customerReview/image-jeanette.jpg", message: "The hotel facilities were also impressive. The breakfast buffet offered a great variety of delicious options, and the dining staff were attentive and polite. The location was perfect — close to major attractions, restaurants, and transportation, yet still quiet and relaxing at night."},
+    {name: "Kira", src: "images/contact/customerReview/image-kira.jpg", message: "What truly stood out was the customer service. Every staff member I encountered went above and beyond to make my stay enjoyable."},
+    {name: "Patrick", src: "images/contact/customerReview/image-patrick.jpg", message: "I would definitely stay here again and highly recommend this hotel to anyone looking for comfort, convenience, and excellent service."},
+];

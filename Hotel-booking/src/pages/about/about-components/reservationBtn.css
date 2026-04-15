@@ -1,5 +1,5 @@
 
-.reserve-section{
+.reserve-button-section{
     background-color: white;
     position: relative;
     z-index: 9;
@@ -8,18 +8,18 @@
     overflow: hidden;
      
 }
-.reserve-section::after{
+.reserve-button-section::after{
     content: "";
     position: absolute;
     inset: 0;
     background-color: rgba(0,0,0,0.3);
     z-index: -1;
 }
-.reserve-section::before{
+.reserve-button-section::before{
     content: "";
     position: absolute;
     inset: 0;
-    background-image:  url("../images/index/first-section/firstsection1.jpg");
+    background-image:  url("/images/index/first-section/firstsection1.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

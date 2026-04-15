@@ -6,6 +6,7 @@ import Rooms from "./pages/rooms/rooms.jsx";
 import RoomReserve from "./pages/rooms/roomReserve.jsx";
 import ReserveRoomForm from "./pages/rooms/roomReserve-components/reserveRoomForm.jsx";
 import About from "./pages/about/about.jsx";
+import Contact from "./pages/contact/contact.jsx";
 function App() {
   return (
     <BrowserRouter basename="/Hotel_booking_react_ver">
@@ -16,6 +17,7 @@ function App() {
         <Route path="/roomReserve" element={<RoomReserve />} />
         <Route path="/reserveRoomForm" element={<ReserveRoomForm />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </BrowserRouter>
