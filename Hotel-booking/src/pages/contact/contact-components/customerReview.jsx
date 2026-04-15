@@ -31,23 +31,12 @@ function CustomerReview() {
   const [translateX, setTranslateX] = useState();
   useEffect(() => {
     if (!trackRef.current) return;
-    const updateWidth = () => {
-      const track = trackRef.current;
-      const slide = track.querySelector(".review-carousel-items");
-      const style = window.getComputedStyle(track);
-      const gap = parseInt(style.columnGap || style.gap) || 0;
-      const slideWidth = slide.offsetWidth + gap;
-      setTranslateX(isReviewIndex * slideWidth);
-    };
-
-    // Create an observer that watches the carousel's actual size
-    const observer = new ResizeObserver(() => {
-      updateWidth();
-    });
-    observer.observe(trackRef.current);
-    // Also run it once immediately
-    updateWidth();
-    return () => observer.disconnect();
+    const track = trackRef.current;
+    const slide = track.querySelector(".review-carousel-items");
+    const style = window.getComputedStyle(track);
+    const gap = parseInt(style.columnGap || style.gap) || 0;
+    const slideWidth = slide.offsetWidth + gap;
+    setTranslateX(isReviewIndex * slideWidth);
   }, [isReviewIndex, slideView]);
 
   const dotsClick = (index) => {
