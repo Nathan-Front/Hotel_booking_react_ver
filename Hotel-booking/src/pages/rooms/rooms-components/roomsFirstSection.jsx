@@ -83,7 +83,6 @@ function RoomsFirstSection() {
                 required
               />
             </div>
-
             <div className="input-group">
               <label htmlFor="checkout">Check-out</label>
               <input
@@ -223,11 +222,10 @@ function RoomsFirstSection() {
               </div>
             )}
           </div>
-          <div className="check-button">
-            <button type="submit" className="check-available-button">
-              Check Availability
-            </button>
-          </div>
+
+          <button type="submit" className="check-button">
+            Check Availability
+          </button>
         </form>
       </section>
     </>

@@ -67,6 +67,9 @@ footer{
 .alright-wrapper> p{
     margin: 0;
 }
+.alright-wrapper> p> a{
+    color: #0000EE;
+}
 .subscribe-input.error-border {
   border: 2px solid red;
 }

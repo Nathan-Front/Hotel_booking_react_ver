@@ -27,43 +27,77 @@ p, button{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: fit-content;
+    width: inline-flex;
     margin: 200px auto 0 auto;
     padding: 5px;
     border-radius: 0.25em;
     gap: 5px;
     position: relative;
     background-color: rgb(156, 98, 11);
+    width: fit-content;
+    align-items: stretch;
 }
+.check-in-out-wrapper, 
+.user-reserve-info-wrapper, 
+.check-button {               
+    min-width: 150px;     
+    padding: 10px 5px;    
+    min-height: 60px;     
+    display: flex;
+    align-items: center; 
+   
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    font-size: clamp(0.8rem, 1.2vw, 2.5rem);
+    flex-wrap: wrap;
+}
+
+
 .check-in-out-wrapper{
+    width: 20vw;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+.input-group{
+    width: 100%; 
     display: flex;
     justify-content: center;
-    gap: 10px;
-    background-color: white;
-    padding: 20px 25px;
-    border-radius: 0.25em;
-}
-.user-reserve-info-wrapper{
-    display: flex;
+    align-items: center;
     gap: 5px;
-    background-color: white;
-    padding: 16px 50px 16px 15px;
-    border-radius: 0.25em;
-    position: relative;
+    flex: 1;              
+    
+}
+.input-group> input{
+    width: fit-content;
+    font-size: 14px;        
+    box-sizing: border-box;
+    min-width: 100px;
+}
+.input-group> label {
+    width: 30%;
+    text-align: left;
+}
+
+
+.user-reserve-info-wrapper{
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 25vw;
+    justify-content: space-evenly;
 }
 .user-reserve-info-wrapper::after{
     content: "▼";
-    position: absolute;
-    right:15px;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none;
+    position: relative;
+    pointer-events: none; 
 }
 .reserve-counter{
     display: flex;
     align-items: center;
     gap: 5px;
     flex-direction: row;
+    position: relative;
+   
 }
 .reserve-counter> img{
     width: 30px;
@@ -72,20 +106,23 @@ p, button{
     cursor: pointer;
 }
 .check-button{
-    padding: 21px 25px;
-    background-color: white;
-    border-radius: 0.25em;
+    width: 10vw;
+    text-align: center;
+    justify-content: center;
+    align-self: stretch;
 }
 .check-available-button{
-   background-color: transparent;
-   border: none;
-    
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    height: 100%;
+    min-width: 150px;     
 }
 .reserve-info-wrapper{
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 69px;
+    top: 100%;
     right: 0;
     background-color: white;
     padding: 20px 50px 10px 50px;
@@ -94,7 +131,7 @@ p, button{
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
 .reserve-info-wrapper> div{
-    width: 250px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -104,21 +141,26 @@ p, button{
     margin-right: 5px;
 }
 @media only screen and (max-width: 330px){
-    .rooms-form-wrapper{
-        width: 85vw;
-        margin: 80px auto 0 auto;
+    .rooms-form-wrapper {
+        width: 90vw;
+        margin: 20px auto 0 auto;
+    }
+    .check-in-out-wrapper, 
+    .user-reserve-info-wrapper, 
+    .check-button {
+        width: 100%;
+    }
+    .input-group{
+        width: 100%;
+    }
+     .input-group> input{
+        width: 100%;
+    }
+    .input-group> label {
+       width: 100%;
     }
     .user-reserve-info-wrapper::after{
         content: "";
-    }
-    .check-in-out-wrapper,
-    .user-reserve-info-wrapper{
-        width: 70vw;
-        padding: 15px 20px;
-    }
-    .check-button{
-        width: 70vw;
-        padding: 15px 20px;
     }
     .check-in-out-wrapper> div{
         display: flex;
@@ -127,17 +169,36 @@ p, button{
     }
     .reserve-info-wrapper-active{
         right: -5%;
-         padding: 10px 20px;
+        padding: 10px 20px;
     }
 }
 @media (min-width: 331px) and (max-width: 599px){
+    .check-in-out-wrapper{
+        gap: 10px;
+        padding: 3px;
+    }
+    .check-in-out-wrapper, 
+    .user-reserve-info-wrapper, 
+    .check-button {
+        width: 100%;
+    }
+    .input-group{
+        width: 100%;
+    }
+     .input-group> input{
+        width: 100%;
+    }
+    .input-group> label {
+       width: 100%;
+    }
     .user-reserve-info-wrapper::after{
         content: "";
     }
     .rooms-form-wrapper{
         width: 70vw;
-        margin: 100px auto 0 auto;
-    }
+        flex-direction: column;
+        margin: 80px auto 0 auto;
+    }/*
     .check-in-out-wrapper,
     .user-reserve-info-wrapper,
     .check-button{
@@ -145,12 +206,13 @@ p, button{
         padding: 15px 20px;
          display: flex;
         justify-content: center;
-    }
+    }*/
     .check-in-out-wrapper> div{
         display: flex;
         flex-direction: column;
         text-align: center;
     }
+   
     .reserve-info-wrapper-active{
         right: 0;
         padding: 15px 30px;
@@ -191,6 +253,5 @@ input[type="checkbox"]{
     width: inherit;
     border-top: 0.5px solid rgb(164, 164, 164);
 }
-
 
 

@@ -42,7 +42,6 @@
     position: relative;
     display: flex;
     align-items: center;
-     
 }
 .faq-question::after {
     content: '\02795';
@@ -52,7 +51,7 @@
 }
 .faq-question:hover, 
 .faq-question.active {
-  color: rgb(38, 89, 243); /* Your theme color */
+    color: rgb(38, 89, 243); /* Your theme color */
 }
 .faq-answer {
     display: block;
@@ -64,21 +63,24 @@
     animation: slideDown 0.3s ease-out;
 }
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 .faq-item.activeFAQ .faq-answer {
     display: block;
 }
-@media only screen and (max-width: 330px){
+
+@media only screen and (max-width: 599px){
+    .faq-wrapper{
+        width: 100%;
+    }
     .faq-panels{
-        width: clamp(300px, 45vw, 800px);
+        width: 90%;
+        margin: 0 auto;
     }
-    .faq-question::after{
-        display: none;
+    .faq-question {
+        width: 100%;
     }
-}
-@media (min-width: 331px) and (max-width: 599px){
     .rooms-fourth-section> div{
         gap: 0.25em;
     }
@@ -87,6 +89,16 @@
     }
 }
 @media (min-width: 600px) and (max-width: 768px){
+    .faq-wrapper{
+        width: 100%;
+    }
+    .faq-panels{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .faq-question {
+        width: 100%;
+    }
     .rooms-fourth-section> div{
         gap: 0.25em;
     }
