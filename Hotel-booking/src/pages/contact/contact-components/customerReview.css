@@ -94,6 +94,9 @@
     border-radius: 0.25em;
     border: 2px gray solid;
 }
+.review-dots> span:hover{
+    cursor: pointer;
+}
 .review-dots> span.review-Active{
     background-color: rgb(227, 146, 32);
 }

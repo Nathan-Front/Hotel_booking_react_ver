@@ -118,7 +118,6 @@ ul> li{
     .more-details-wrapper{
         width: 100%;
         height: 100vh;
-        padding-top: 52px;
         padding-bottom: 45px;
         display: flex;
         flex-direction: column;

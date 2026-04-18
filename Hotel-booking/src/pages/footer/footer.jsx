@@ -13,17 +13,17 @@ function Footer() {
     { name: "Home", path: "/", src: "images/logo/home-1-svgrepo-com.svg" },
     {
       name: "Rooms",
-      path: "/",
+      path: "/rooms",
       src: "images/logo/room-key-key-svgrepo-com.svg",
     },
     {
       name: "About",
-      path: "/",
+      path: "/about",
       src: "images/logo/about-faq-help-question-svgrepo-com.svg",
     },
     {
       name: "Contact",
-      path: "/",
+      path: "/contact",
       src: "images/logo/contact-phone-communication-svgrepo-com.svg",
     },
   ];

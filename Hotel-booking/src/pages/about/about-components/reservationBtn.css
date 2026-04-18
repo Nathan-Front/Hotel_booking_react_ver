@@ -69,6 +69,7 @@
 .about-reserve-button:hover{
     border: 2px solid transparent;
     color: #C6A75E;
+    cursor: pointer;
 }
 .reserve-section> div> h1{
     margin: 0;
