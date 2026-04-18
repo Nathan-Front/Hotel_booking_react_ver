@@ -3,7 +3,12 @@ import { useNavigate } from "react-router-dom";
 function ReservationBtnHtml() {
   const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate("/roomReserve");
+    const reserveExist = JSON.parse(localStorage.getItem("reservedRoom")) || [];
+    if (reserveExist.length > 0) {
+      navigate("/reserveRoomForm");
+    } else {
+      navigate("/roomReserve");
+    }
   };
   return (
     <>
