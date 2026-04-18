@@ -41,12 +41,6 @@ h4{
 
     border: 1px rgb(150, 150, 150) solid;
 }
-
-@media only screen and (max-width: 540px){
-    .reserve-section{
-        width: 98%;
-    }
-}
 .reserve-section> h3{
     margin: 10px 0 0 10px;
     color: blue;
@@ -54,6 +48,13 @@ h4{
 .reserve-section> p{
     margin: 0 0 0 10px;
     color: rgb(59, 67, 110);
+}
+@media only screen and (max-width: 599px){
+    .reserve-section{
+        width: 98%;
+        padding: 10px 0;
+        gap: 0;
+    }
 }
 .section-sub-wrapper{
     display: flex;
@@ -72,14 +73,15 @@ h4{
 }
 .room-left-panel{
     margin-left: 10px;  
+    display: flex;
+    flex-direction: column;
 }
 .left-panel-images{
     width: clamp(150px, 15vw, 250px);
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(80px, 1fr));
     gap: 3px;
-    grid-auto-rows: 65px;
-
+    grid-auto-rows: auto;
 }
 .left-panel-images>img{
     width: 100%;
@@ -106,6 +108,7 @@ h4{
     flex-direction: column;
     gap: 0.25em;
     padding: 10px 0;
+    
 }
 .left-panel-descript> li{
     display: flex;
@@ -130,7 +133,7 @@ h4{
     transform: translateY(-1px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
-@media only screen and (max-width: 540px){
+@media only screen and (max-width: 599px){
     .reserve-first-section{
         width: 95%;
     }
@@ -145,13 +148,19 @@ h4{
         flex-wrap: nowrap;
     }
     .room-left-panel{
-        display: flex;
-        justify-content: space-around;
+        width: 100%;
+        display: flex;   
+        justify-content: space-evenly;   
+        gap: 1em;
         margin-left: 0;
         padding-bottom: 10px;
+        flex-direction: row;
     }
-    .left-panel-descript{
-        padding: 0;
+    .left-panel-images{
+        margin-left: 5px;
+    }
+    .left-panel-descript {
+        margin-right: 5px;
     }
 }
 .room-right-panel{
@@ -169,7 +178,7 @@ h4{
 .first-room-right-panel> h4{
     margin: 0;
 }
-@media only screen and (max-width: 540px){
+@media only screen and (max-width: 599px){
     .room-right-panel{
         margin: 0 auto;
         border-radius: unset;
@@ -184,7 +193,7 @@ h4{
     border-bottom: 1px rgb(196, 194, 194) solid;
     padding: 8px 10px;
 }
-@media only screen and (max-width: 540px){
+@media only screen and (max-width: 599px){
     .first-room-right-panel{
         padding: 5px 0;
     }
@@ -265,7 +274,7 @@ h4{
     margin: 0;
 
 }
-@media only screen and (max-width: 540px){
+@media only screen and (max-width: 599px){
     .right-panel-descript> li{
         gap: 3px;
     }
@@ -277,7 +286,7 @@ h4{
         margin-left: 10px;
     }
 }
-@media (min-width: 541px) and (max-width: 768px){
+@media (min-width: 600px) and (max-width: 768px){
     .right-panel-descript> li{
         gap: 5px;
     }
@@ -314,7 +323,7 @@ h4{
     border-radius: 0.25em;
     font-size: clamp(0.7rem, 1vw, 1.5rem);
 }
-@media only screen and (max-width: 540px){
+@media only screen and (max-width: 599px){
     .special-price> p,
     .special-price> span{
         text-align: center;
@@ -377,7 +386,7 @@ h4{
 .more-rooms.active .triangle {
     transform: rotate(180deg);
 }
-@media only screen and (max-width: 540px){
+@media only screen and (max-width: 599px){
     .more-rooms::after{
         content: "";
     }
@@ -400,7 +409,7 @@ h4{
     padding: 0 10px;
     border-bottom: 1px rgb(196, 194, 194) solid;
 }
-@media only screen and (max-width: 540px){
+@media only screen and (max-width: 599px){
     .second-room-right-panel,
     .third-room-right-panel,
     .fourth-room-right-panel,
