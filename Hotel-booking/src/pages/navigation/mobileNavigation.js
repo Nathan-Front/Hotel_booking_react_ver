@@ -1,3 +1,4 @@
+
 export const links = [
     {id: 1, path: "/", title: "Home", src:"images/index/mobileLogo/home/home-svgrepo-com.svg", alt: "home"},
     {id: 2, path: "/rooms", title: "Rooms", src:"images/index/mobileLogo/rooms/hotel-14-svgrepo-com.svg", alt: "rooms"},

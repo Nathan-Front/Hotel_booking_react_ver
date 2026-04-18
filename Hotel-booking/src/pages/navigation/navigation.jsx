@@ -14,7 +14,7 @@ function Navigations() {
         <div>
           <img
             className="hotel-logo"
-            src="./images/logo/logo.png"
+            src={`${import.meta.env.BASE_URL}images/logo/logo.png`}
             alt="company logo"
             loading="eager"
           />

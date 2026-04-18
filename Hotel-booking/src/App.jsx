@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
+import ScrollToTop from "./assets/script/index.js";
 import Navigations from "./pages/navigation/navigation.jsx";
 import MobileNavigation from "./pages/navigation/mobileNavigation.jsx";
 import Footer from "./pages/footer/footer.jsx";
@@ -10,9 +11,10 @@ import About from "./pages/about/about.jsx";
 import Contact from "./pages/contact/contact.jsx";
 function App() {
   return (
-    <BrowserRouter basename="/Hotel_booking_react_ver">
+    <HashRouter>
       <Navigations />
       <MobileNavigation />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/rooms" element={<Rooms />} />
@@ -22,7 +24,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
