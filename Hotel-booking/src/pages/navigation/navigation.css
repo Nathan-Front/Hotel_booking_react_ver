@@ -47,7 +47,10 @@
 .mobile-navigation-links{
     display: none;
 }
-@media only screen and (max-width: 540px){
+@media only screen and (max-width: 599px){
+    .navigation-wrapper{
+        z-index: 999;
+    }
     .navigation-links{
         display: none;
     }

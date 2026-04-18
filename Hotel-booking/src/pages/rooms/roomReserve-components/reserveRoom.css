@@ -9,6 +9,7 @@ label{
     gap: 1em;
     padding: 30px 0;
     background-color: white;
+    justify-content: center;
 }
 .reservation-form-wrap{
     display: flex;
@@ -132,7 +133,7 @@ label{
 .cancel-reservation-button{
     background-color: #6c757d;
     padding: 3px 10px;
-    width: clamp(200px, 15vw, 300px);
+    width: clamp(150px, 15vw, 300px);
 }
 .cancel-reservation-button:hover{
     background-color: #8c1f29;
@@ -142,7 +143,7 @@ label{
 .final-step-button{
     background-color: #0d6efd;
     padding: 3px 10px;
-    width: clamp(200px, 20vw, 400px);
+    width: clamp(150px, 20vw, 400px);
 }
 .final-step-button:hover{
     background-color: #174fc4;  

@@ -12,7 +12,6 @@ body.no-scroll {
     height: 100vh;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.7);
-
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease;
@@ -33,11 +32,9 @@ body.no-scroll {
     background-color: white;
     padding: 0 30px 10px 30px;
     border-radius: 0.25em;
-
     position: fixed;
     top: 10%;
     z-index: 99;
-    
     opacity: 0;
     transition: opacity 0.3s ease-in;
 }
@@ -55,16 +52,18 @@ body.no-scroll {
     gap: 1em;
 }
 .left-container{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     flex-wrap: wrap;
     padding-bottom: 5px;
-    flex: 2;
+    width: 55%;
     gap: clamp(5px, 1.5vw, 15px);
     overflow-y: scroll;
+    
 }
 .left-container> img{
-    width: clamp(150px, 48%, 400px);
-    height: clamp(120px, 15vw, 300px);
+    width: 95%;
+    height: 200px;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
     border-radius: 0.25em;
 }
@@ -115,29 +114,36 @@ ul> li{
 .last-item{
     display: flex;
 }
-@media only screen and (max-width: 550px){
+@media only screen and (max-width: 599px){
     .more-details-wrapper{
-        width: 95%;
+        width: 100%;
+        height: 100vh;
+        padding-top: 52px;
+        padding-bottom: 45px;
         display: flex;
         flex-direction: column;
         overflow: hidden;  
-        top: 2%;
+        top: 0;
+        left: 0;
+        border-radius: 0;
     }
-     .more-details-container{
+    .close-button{
+        margin: 5px auto 0 0;
+    }
+    .more-details-container{
         flex: 1;               
         overflow-y: auto;       
         flex-direction: column;
+        padding-top: 0;
     }
     .left-container,
     .right-more-details-container{
         overflow: visible;
     }
-    .left-container> img{
-        width: clamp(100px, 48%, 400px);
+    .left-container{
+        width: 100%;
     }
-}
-@media (min-width: 551px) and (max-width:768px){
     .left-container> img{
-        width: clamp(30px, 48%, 400px);
+        width: 100%;
     }
 }
