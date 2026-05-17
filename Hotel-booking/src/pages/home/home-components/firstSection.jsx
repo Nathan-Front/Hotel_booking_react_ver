@@ -1,7 +1,8 @@
 import "./firstSection.css";
-import { firstSectionImg } from "./data/firstSection";
+import { firstSectionImg, firstSectionText } from "./data/firstSection.js";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import React from "react";
 function FirstSection() {
   const [currentImg, setCurrentImg] = useState(0);
   useEffect(() => {
@@ -32,14 +33,15 @@ function FirstSection() {
           )}
         </ul>
         <div className="first-section-content">
-          <h1>Welcome to Hotel C</h1>
-          <p>
-            Your comfort is our priority. Experience luxury and relaxation at
-            its finest.
-          </p>
-          <Link type="button" className="book-button" to={"/roomReserve"}>
-            Book Now
-          </Link>
+          {firstSectionText.map((item, index) => (
+            <React.Fragment key={index}>
+              <h1>{item.mainTitle}</h1>
+              <p>{item.mainTitleText}</p>
+              <Link type="button" className="book-button" to={"/roomReserve"}>
+                {item.btn}
+              </Link>
+            </React.Fragment>
+          ))}
         </div>
       </section>
     </>

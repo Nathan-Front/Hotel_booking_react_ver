@@ -75,9 +75,34 @@ function FourthSection() {
     window.addEventListener("resize", handleWidth);
     return () => window.removeEventListener("resize", handleWidth);
   }, []);
+
+  const sectionRef = useRef(null);
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShow(true);
+        } else {
+          setShow(false);
+        }
+      },
+      { threshold: 0.2, rootMargin: "0px" },
+    );
+    const current = sectionRef.current;
+    if (current) {
+      observer.observe(current);
+    }
+    return () => {
+      observer.unobserve(current);
+    };
+  }, []);
   return (
     <>
-      <section className="fourth-section">
+      <section
+        className={show ? "fourth-section showGallery" : "fourth-section"}
+        ref={sectionRef}
+      >
         <h2 className="section-titles">Gallery</h2>
         <div className="gallery-main-wrapper">
           <ul

@@ -1,9 +1,9 @@
 .first-section{
-    height: clamp(300px, 50vw, 600px);
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+  height: clamp(300px, 50vw, 600px);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .first-section-images-wrapper{
   position: absolute;
@@ -51,7 +51,7 @@
   0 0 20px rgb(0, 0, 0);
 }
 .first-section-content>p{
-  font-size: clamp(0.9rem, 2vw, 2.5rem);
+  font-size: clamp(0.9rem, 1.5vw, 2.5rem);
   text-shadow:  0 0 5px rgb(0, 0, 0),
   0 0 10px rgb(0, 0, 0),
   0 0 20px rgb(0, 0, 0);
@@ -65,7 +65,7 @@
   border-radius: 0.25em;
   box-shadow: 5px 5px 5px;
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 .book-button:hover{
   background-color: white;

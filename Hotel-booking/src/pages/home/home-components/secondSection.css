@@ -1,7 +1,14 @@
 
 .second-section{
     background-color: aliceblue;
-    padding-bottom: 80px;
+    padding: 80px 0;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.second-section.roomLists {
+    opacity: 1;
+    transform: translateY(0);
 }
 .section-titles{
     text-align: center;
@@ -96,7 +103,7 @@
 }
 @media only screen and (max-width: 540px){
     .second-section{
-        padding-bottom: 40px;
+        padding: 40px 0;
     }
     .index-room-panels{
         width: 90%;

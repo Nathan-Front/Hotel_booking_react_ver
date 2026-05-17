@@ -2,7 +2,7 @@ import "./footer.css";
 import AlrightReserve from "./alrightReserve.jsx";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { validateEmail, subscribe } from "./footer.js";
+import { validateEmail } from "../../assets/script/validateEmail.js";
 function Footer() {
   const footerContact = [
     { name: "address", src: "images/logo/address-svgrepo-com.svg" },
@@ -28,21 +28,22 @@ function Footer() {
     },
   ];
   const footerMedia = [
-    { name: "Facebook", src: "images/logo/facebook-svgrepo-com.png" },
+    { name: "Facebook", src: "images/logo/facebook-svgrepo-com.webp" },
     {
       name: "X/Twitter",
-      src: "images/logo/twitter-rounded-border-svgrepo-com.png",
+      src: "images/logo/twitter-rounded-border-svgrepo-com.webp",
     },
     {
       name: "Instagram",
-      src: "images/logo/instagram-rounded-border-svgrepo-com.png",
+      src: "images/logo/instagram-rounded-border-svgrepo-com.webp",
     },
-    { name: "LinkedIn", src: "images/logo/linkedin-boerder-svgrepo-com.png" },
+    { name: "LinkedIn", src: "images/logo/linkedin-boerder-svgrepo-com.webp" },
   ];
-  const [isSubscribe, setIsSubscribe] = useState({
+  const initialForm = {
     email: "",
-    date: new Date().toISOString(),
-  });
+    _honey: "",
+  };
+  const [isSubscribe, setIsSubscribe] = useState(initialForm);
   const handleSubscribe = (e) => {
     const { name, value } = e.target;
     setIsSubscribe((prev) => ({
@@ -51,26 +52,43 @@ function Footer() {
     }));
   };
 
-  const [error, setError] = useState("");
-  const handleSubcribe = (e) => {
+  const [isError, setIsError] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const subscribeEmail = async (e) => {
     e.preventDefault();
-    const mail = validateEmail(isSubscribe.email);
-    if (!mail) {
-      setError("Enter a valid email");
+    if (isSubscribe._honey) {
+      console.log("Bot detected");
       return;
     }
-    if (mail) {
-      const result = subscribe(isSubscribe);
-      if (result.success) {
-        setIsSubscribe({ email: "", date: new Date().toISOString() });
-        alert("Thank you for subscribing.");
-      } else if (result.errorType === "Already_Exist") {
-        alert("This email is already subscribed.");
-        return;
-      }
-    } else {
-      alert("Please input correct email format.");
+    const mail = validateEmail(isSubscribe.email);
+    if (!mail) {
+      setIsError(true);
       return;
+    }
+    setIsSending(true);
+    const data = { email: isSubscribe.email };
+    const scriptURL =
+      "https://script.google.com/macros/s/AKfycbyZvOwTmDnGsQElZ-J4KNfPTtQW7CKgq7kqWGMd-6kzj9L7xwc2MGpVBhJLHBsoXkHu6Q/exec";
+    try {
+      const response = await fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+      const result = await response.text();
+      if (result === "Duplicate") {
+        alert("Email already subscribed.");
+        setIsSubscribe(initialForm);
+        setIsSending(false);
+      } else {
+        alert("Thank you for subscribing.");
+        setIsSubscribe(initialForm);
+        setIsSending(false);
+      }
+    } catch (e) {
+      alert("An error occured. Try again later.");
+    } finally {
+      setIsSending(false);
+      setIsError(false);
     }
   };
   return (
@@ -133,20 +151,43 @@ function Footer() {
         <div className="footer-panels">
           <h3>Newsletter</h3>
           <p>Subscribe to our newsletter for the latest updates.</p>
-          <form action="" onSubmit={handleSubcribe}>
+          <form action="" onSubmit={subscribeEmail}>
             <div>
               <input
                 name="email"
                 type="email"
                 placeholder="Enter your email"
-                className={`subscribe-input ${error ? "error-border" : ""}`}
+                className={`${isError ? "subscribe-input input-error" : "subscribe-input"}`}
                 value={isSubscribe.email}
                 onChange={handleSubscribe}
               />
+              <input
+                type="text"
+                name="_honey"
+                value={isSubscribe._honey}
+                onChange={handleSubscribe}
+                style={{
+                  position: "absolute",
+                  left: "-999999px",
+                }}
+                tabIndex="-1"
+                autoComplete="off"
+              />
             </div>
 
-            <button type="submit" className="subscribe-button">
-              Subscribe
+            <button
+              type="submit"
+              className="subscribe-button"
+              disabled={isSending}
+            >
+              <span
+                id="loader"
+                className={`${isSending ? "spinner" : ""}`}
+              ></span>
+              <span id="btn-text">
+                {" "}
+                {isSending ? "Sending..." : "Subscribe"}
+              </span>
             </button>
           </form>
         </div>

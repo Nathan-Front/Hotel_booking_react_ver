@@ -2,12 +2,20 @@
 .fourth-section{
     position: relative;
     overflow: hidden;
+    margin: 50px 0 0 0;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fourth-section.showGallery {
+    opacity: 1;
+    transform: translateY(0);
 }
 .fourth-section::before{
     content: "";
     position: absolute;
     inset: 0;
-    background-image: url("/images/index/gallery/bar-new.jpg");
+    background-image: url("/images/index/gallery/bar-new.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -84,7 +92,6 @@
     color: rgb(0, 0, 0);
     padding: 15px 8px;
     border: none;
-    border-radius: 0.25em;
     position: absolute;
     top: 55%;
     font-size: 1.3rem;

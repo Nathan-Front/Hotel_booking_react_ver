@@ -1,5 +1,5 @@
 import "./fifthSection.css";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { submitMessage } from "../../../assets/script/index.js";
 import { validateEmail } from "../../../assets/script/validateEmail.js";
 function FifthSection() {
@@ -41,12 +41,56 @@ function FifthSection() {
     }
   };
 
+  const titleRef = useRef(null);
+  const containerRef = useRef(null);
+  const mapRef = useRef(null);
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShow(true);
+          observer.unobserve(entry.target);
+        } else {
+          setShow(false);
+        }
+      },
+      { threshold: 0.3, rootMargin: "0px 0px -200px 0px" },
+    );
+    const refs = [titleRef.current, containerRef.current, mapRef.current];
+    refs.forEach((ref) => {
+      if (ref) {
+        observer.observe(ref);
+      }
+    });
+    return () => {
+      refs.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, []);
+
   return (
     <>
       <section className="fifth-section">
-        <h2 className="section-titles">Contact Us</h2>
+        <h2
+          className={
+            show
+              ? "section-titles map-title slideTitle"
+              : "section-titles map-title"
+          }
+          ref={titleRef}
+        >
+          Contact Us
+        </h2>
         <div className="form-map-wrapper">
-          <form action="" id="message-form" onSubmit={submitForm}>
+          <form
+            action=""
+            className={show ? "slideForm" : ""}
+            ref={containerRef}
+            id="message-form"
+            onSubmit={submitForm}
+          >
             <input
               type="text"
               name="customer"
@@ -92,6 +136,8 @@ function FifthSection() {
             src="https://www.google.com/maps?q=Tokyo,Japan&output=embed"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+            className={show ? "slideFrame " : ""}
+            ref={mapRef}
           ></iframe>
         </div>
       </section>
