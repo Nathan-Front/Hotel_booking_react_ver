@@ -1,0 +1,1 @@
+async function e(e,t,n){let r=JSON.parse(localStorage.getItem(`reservedRoom`))||[];if(!r)return;let i={...e,roomType:t,roomImage:n};r.push(i),localStorage.setItem(`reservedRoom`,JSON.stringify(r))}export{e as t};
