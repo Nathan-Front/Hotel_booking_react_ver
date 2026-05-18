@@ -1,62 +1,62 @@
 export const twinBedSingleLeftImg = [
-    {id: 1, src: "images/index/rooms/twinbed single.jpg"},
-    {id: 2, src: "images/rooms/reserve/twinbed single/white-pillow-bed.jpg"},
-    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.jpg"},
-    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.png"},
-    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.jpg"},
-    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.jpg"},
-    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.jpg"},
-    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.jpg"}
+    {id: 1, src: "images/index/rooms/twinbed single.webp"},
+    {id: 2, src: "images/rooms/reserve/twinbed single/white-pillow-bed.webp"},
+    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.webp"},
+    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.webp"},
+    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.webp"},
+    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.webp"},
+    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.webp"},
+    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.webp"}
 ];
 export const twinBedFullLeftImg = [
-    {id: 1, src: "images/index/rooms/twinbed single.jpg"},
-    {id: 2, src: "images/rooms/reserve/twinbed single/white-pillow-bed.jpg"},
-    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.jpg"},
-    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.png"},
-    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.jpg"},
-    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.jpg"},
-    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.jpg"},
-    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.jpg"}
+    {id: 1, src: "images/index/rooms/twinbed single.webp"},
+    {id: 2, src: "images/rooms/reserve/twinbed single/white-pillow-bed.webp"},
+    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.webp"},
+    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.webp"},
+    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.webp"},
+    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.webp"},
+    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.webp"},
+    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.webp"}
 ];
 export const doubleBedFullLeftImg = [
-    {id: 1, src: "images/index/rooms/twinbed double.jpg"},
-    {id: 2, src: "images/rooms/reserve/twinbedfull/fullBed1.jpg"},
-    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.jpg"},
-    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.png"},
-    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.jpg"},
-    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.jpg"},
-    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.jpg"},
-    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.jpg"}
+    {id: 1, src: "images/index/rooms/twinbed double.webp"},
+    {id: 2, src: "images/rooms/reserve/twinbedfull/fullBed1.webp"},
+    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.webp"},
+    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.webp"},
+    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.webp"},
+    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.webp"},
+    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.webp"},
+    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.webp"}
 ];
 export const queenBedFullLeftImg = [
-    {id: 1, src: "images/index/rooms/queenbed.jpeg"},
-    {id: 2, src: "images/rooms/reserve/more details/queenbed/bedAndchair.jpg"},
-    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.jpg"},
-    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.png"},
-    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.jpg"},
-    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.jpg"},
-    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.jpg"},
-    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.jpg"}
+    {id: 1, src: "images/index/rooms/queenbed.webp"},
+    {id: 2, src: "images/rooms/reserve/more details/queenbed/bedAndchair.webp"},
+    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.webp"},
+    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.webp"},
+    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.webp"},
+    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.webp"},
+    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.webp"},
+    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.webp"}
 ];
 export const kingBedFullLeftImg = [
-    {id: 1, src: "images/index/rooms/kingbed.jpg"},
-    {id: 2, src: "images/rooms/reserve/more details/queenbed/bedAndchair.jpg"},
-    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.jpg"},
-    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.png"},
-    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.jpg"},
-    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.jpg"},
-    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.jpg"},
-    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.jpg"}
+    {id: 1, src: "images/index/rooms/kingbed.webp"},
+    {id: 2, src: "images/rooms/reserve/more details/queenbed/bedAndchair.webp"},
+    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.webp"},
+    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.webp"},
+    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.webp"},
+    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.webp"},
+    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.webp"},
+    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.webp"}
 ];
 export const familyBedFullLeftImg = [
-    {id: 1, src: "images/index/rooms/familysuite.png"},
-    {id: 2, src: "images/rooms/secondSection/family-room.jpeg"},
-    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.jpg"},
-    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.png"},
-    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.jpg"},
-    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.jpg"},
-    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.jpg"},
-    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.jpg"}
+    {id: 1, src: "images/index/rooms/familysuite.webp"},
+    {id: 2, src: "images/rooms/secondSection/family-room.webp"},
+    {id: 3, src: "images/rooms/reserve/more details/twinBed single/keycard.webp"},
+    {id: 4, src: "images/rooms/reserve/more details/twinBed single/sunset.webp"},
+    {id: 5, src: "images/rooms/reserve/more details/twinBed single/bathtub.webp"},
+    {id: 6, src: "images/rooms/reserve/more details/twinBed single/toilet.webp"},
+    {id: 7, src: "images/rooms/reserve/more details/twinBed single/sink.webp"},
+    {id: 8, src: "images/rooms/reserve/more details/twinBed single/toiletries.webp"}
 ];
 
 export const firstList = [

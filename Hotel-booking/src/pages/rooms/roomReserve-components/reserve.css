@@ -49,10 +49,10 @@ h4{
     margin: 0 0 0 10px;
     color: rgb(59, 67, 110);
 }
-@media only screen and (max-width: 599px){
+@media only screen and (max-width: 640px){
     .reserve-section{
         width: 98%;
-        padding: 10px 0;
+        padding: 10px 0 0 0;
         gap: 0;
     }
 }
@@ -133,7 +133,7 @@ h4{
     transform: translateY(-1px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
-@media only screen and (max-width: 599px){
+@media only screen and (max-width: 640px){
     .reserve-first-section{
         width: 95%;
     }
@@ -178,7 +178,7 @@ h4{
 .first-room-right-panel> h4{
     margin: 0;
 }
-@media only screen and (max-width: 599px){
+@media only screen and (max-width: 640px){
     .room-right-panel{
         margin: 0 auto;
         border-radius: unset;
@@ -193,7 +193,7 @@ h4{
     border-bottom: 1px rgb(196, 194, 194) solid;
     padding: 8px 10px;
 }
-@media only screen and (max-width: 599px){
+@media only screen and (max-width: 640px){
     .first-room-right-panel{
         padding: 5px 0;
     }
@@ -274,7 +274,7 @@ h4{
     margin: 0;
 
 }
-@media only screen and (max-width: 599px){
+@media only screen and (max-width: 640px){
     .right-panel-descript> li{
         gap: 3px;
     }
@@ -286,7 +286,7 @@ h4{
         margin-left: 10px;
     }
 }
-@media (min-width: 600px) and (max-width: 768px){
+@media (min-width: 651px) and (max-width: 768px){
     .right-panel-descript> li{
         gap: 5px;
     }
@@ -323,7 +323,7 @@ h4{
     border-radius: 0.25em;
     font-size: clamp(0.7rem, 1vw, 1.5rem);
 }
-@media only screen and (max-width: 599px){
+@media only screen and (max-width: 640px){
     .special-price> p,
     .special-price> span{
         text-align: center;
@@ -386,7 +386,7 @@ h4{
 .more-rooms.active .triangle {
     transform: rotate(180deg);
 }
-@media only screen and (max-width: 599px){
+@media only screen and (max-width: 640px){
     .more-rooms::after{
         content: "";
     }
@@ -409,7 +409,7 @@ h4{
     padding: 0 10px;
     border-bottom: 1px rgb(196, 194, 194) solid;
 }
-@media only screen and (max-width: 599px){
+@media only screen and (max-width: 640px){
     .second-room-right-panel,
     .third-room-right-panel,
     .fourth-room-right-panel,

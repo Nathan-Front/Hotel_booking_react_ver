@@ -1,7 +1,7 @@
 export const familyBedImg = [
-    {name: "family suite", src: "images/rooms/secondSection/family-room.jpeg"},
-    {name: "pillow bed", src: "images/rooms/reserve/twinbedfull/fullBed1.jpg"},
-    {name: "white pillow bed", src: "images/rooms/reserve/twinbed single/white-pillow-bed.jpg"},
+    {name: "family suite", src: "images/rooms/secondSection/family-room.webp"},
+    {name: "pillow bed", src: "images/rooms/reserve/twinbedfull/fullBed1.webp"},
+    {name: "white pillow bed", src: "images/rooms/reserve/twinbed single/white-pillow-bed.webp"},
 ];
 
 export const summaryList = [

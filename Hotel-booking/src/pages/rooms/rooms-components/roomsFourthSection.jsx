@@ -1,6 +1,6 @@
 import "./roomsFourthSection.css";
 import { firstFAQs } from "./data/roomsFourthSection";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 function RoomsFourthSection() {
   const firstHalf = firstFAQs.slice(0, 5);
   const secondHalf = firstFAQs.slice(5);
@@ -11,12 +11,47 @@ function RoomsFourthSection() {
     setIsFaqIndex(isFaqIndex === index ? null : index);
   };
 
+  const titleRef = useRef(null);
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShow(true);
+        } else {
+          setShow(false);
+        }
+      },
+      { threshold: 0.4, rootMargin: "0px" },
+    );
+    const refs = [titleRef.current, leftRef.current, rightRef.current];
+    refs.forEach((ref) => {
+      if (ref) {
+        observer.observe(ref);
+      }
+    });
+
+    return () => {
+      refs.forEach((ref) => {
+        observer.unobserve(ref);
+      });
+    };
+  }, []);
   return (
     <>
       <section className="rooms-fourth-section">
-        <h2>Frequently Asked Questions</h2>
+        <h2 className={show ? "slideTitle" : ""} ref={titleRef}>
+          Frequently Asked Questions
+        </h2>
         <div>
-          <ul className="faq-wrapper">
+          <ul
+            className={
+              show ? "faq-wrapper left-wrap slideLeft" : "faq-wrapper left-wrap"
+            }
+            ref={leftRef}
+          >
             {firstHalf.map((QA, index) => (
               <li className="faq-panels" key={index}>
                 <div className="faq-item">
@@ -36,7 +71,14 @@ function RoomsFourthSection() {
               </li>
             ))}
           </ul>
-          <ul className="faq-wrapper">
+          <ul
+            className={
+              show
+                ? "faq-wrapper right-wrap slideRight"
+                : "faq-wrapper right-wrap"
+            }
+            ref={rightRef}
+          >
             {secondHalf.map((QA, index) => {
               const actualIndex = index + 5;
               return (

@@ -1,9 +1,37 @@
 import "./roomsThirdSection.css";
 import { mostBooked } from "./data/roomsThirdSection.js";
+import { useState, useEffect, useRef } from "react";
+import { internetCommunication } from "../roomReserve-components/room-more-details/data/singleMoreDetail.js";
 function RoomsThirdSection() {
+  const sectionRef = useRef(null);
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShow(true);
+        } else {
+          setShow(false);
+        }
+      },
+      { threshold: 0, rootMargin: "0px" },
+    );
+    const current = sectionRef.current;
+    if (current) {
+      observer.observe(current);
+    }
+    return () => {
+      if (current) observer.unobserve(current);
+    };
+  }, []);
   return (
     <>
-      <section className="rooms-third-section">
+      <section
+        className={
+          show ? "rooms-third-section slideComment" : "rooms-third-section"
+        }
+        ref={sectionRef}
+      >
         <h2>Our mostly booked rooms</h2>
         <p>Here are some feedbacks from our beloved customers</p>
         <ul className="most-booked-wrapper">

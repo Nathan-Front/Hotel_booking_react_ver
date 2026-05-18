@@ -1,7 +1,7 @@
 export const queenBedImg = [
-    {name: "queen bed", src: "images/index/rooms/queenbed.jpeg"},
-    {name: "pillow bed", src: "images/rooms/reserve/twinbedfull/fullBed1.jpg"},
-    {name: "white pillow bed", src: "images/rooms/reserve/twinbed single/white-pillow-bed.jpg"},
+    {name: "queen bed", src: "images/index/rooms/queenbed.webp"},
+    {name: "pillow bed", src: "images/rooms/reserve/twinbedfull/fullBed1.webp"},
+    {name: "white pillow bed", src: "images/rooms/reserve/twinbed single/white-pillow-bed.webp"},
 ];
 
 export const summaryList = [

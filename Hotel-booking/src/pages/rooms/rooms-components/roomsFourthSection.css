@@ -2,11 +2,18 @@
 .rooms-fourth-section{
     display: flex;
     flex-direction: column;
-    padding: 30px 0;
+    padding: 50px 0 80px 0;
 }
 .rooms-fourth-section> h2{
     width: 90%;
-    margin: 0 auto;
+    margin: 0 auto 30px auto;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.rooms-fourth-section> h2.slideTitle {
+    opacity: 1;
+    transform: translateY(0);
 }
 .rooms-fourth-section> div{
     display: flex;
@@ -22,7 +29,25 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 0.25em;
-
+    
+}
+.faq-wrapper.left-wrap {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.faq-wrapper.left-wrap.slideLeft {
+    opacity: 1;
+    transform: translateX(0);
+}
+.faq-wrapper.right-wrap {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.faq-wrapper.right-wrap.slideRight {
+    opacity: 1;
+    transform: translateX(0);
 }
 .faq-panels{
     width: clamp(350px, 45vw, 800px);

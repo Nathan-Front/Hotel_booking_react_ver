@@ -1,7 +1,7 @@
 export const twinBedImg = [
-    {name: "twin bed full", src: "images/index/rooms/twinbed double.jpg"},
-    {name: "pillow bed", src: "images/rooms/reserve/twinbed single/pillow-bed.jpg"},
-    {name: "white pillow bed", src: "images/rooms/reserve/twinbed single/white-pillow-bed.jpg"},
+    {name: "twin bed full", src: "images/index/rooms/twinbed double.webp"},
+    {name: "pillow bed", src: "images/rooms/reserve/twinbed single/pillow-bed.webp"},
+    {name: "white pillow bed", src: "images/rooms/reserve/twinbed single/white-pillow-bed.webp"},
 ];
 
 export const summaryList = [
