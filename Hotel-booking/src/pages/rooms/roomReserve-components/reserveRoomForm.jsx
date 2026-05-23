@@ -9,6 +9,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 function ReserveRoomForm() {
   const [startDate, setStartDate] = useState(new Date());
@@ -49,11 +50,6 @@ function ReserveRoomForm() {
     familyName: "",
     email: "",
     contact: "",
-    payMethod: "",
-    cardHolder: "",
-    cardNumber: "",
-    cardExpiry: "",
-    cardCode: "",
   });
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -104,149 +100,15 @@ See next page for final process.`);
       alert("Something went wrong.");
     }
   };
-
+  const initialOptions = {
+    "client-id": import.meta.env.VITE_PAYPAL_CLIENT_ID,
+    currency: "USD",
+  };
+  console.log(import.meta.env);
+  console.log(import.meta.env.VITE_PAYPAL_CLIENT_ID);
   return (
     <>
       <section className="reserveRoom-html" id="reserveRoom-wrapper">
-        <form action="" id="final-step-form" className="form-section">
-          <div className="input-label-wrap">
-            <label htmlFor="firstName">First Name:</label>
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              value={isForm.firstName}
-              onChange={handleInput}
-              required
-            />
-          </div>
-          <div className="input-label-wrap">
-            <label htmlFor="lastName">Family Name:</label>
-            <input
-              type="text"
-              id="lastName"
-              name="familyName"
-              value={isForm.familyName}
-              onChange={handleInput}
-              required
-            />
-          </div>
-          <div className="input-label-wrap">
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={isForm.email}
-              onChange={handleInput}
-              required
-            />
-          </div>
-          <div className="input-label-wrap">
-            <label htmlFor="phone">Phone Number:</label>
-            <input
-              type="tel"
-              id="phone"
-              name="contact"
-              value={isForm.contact}
-              onChange={handleInput}
-              required
-            />
-          </div>
-
-          <div className="payment-methods">
-            <h3>How would you like to pay?</h3>
-            <div className="main-payment-method">
-              <div className="select-payment">
-                <input
-                  type="radio"
-                  id="creditCard"
-                  name="payMethod"
-                  value="credit card"
-                  checked={isForm.payMethod === "credit card"}
-                  onChange={handleInput}
-                  required
-                />
-                <label htmlFor="creditCard">Credit Card/Debit card</label>
-                {paymentImg.map((item) => (
-                  <img
-                    key={item.name}
-                    src={`${import.meta.env.BASE_URL}${item.src}`}
-                    alt={`${item.name}-image`}
-                  />
-                ))}
-              </div>
-              <div className="card-info">
-                <input
-                  type="text"
-                  placeholder="Card Number"
-                  name="cardNumber"
-                  value={isForm.cardNumber}
-                  onChange={handleInput}
-                />
-                <input
-                  type="text"
-                  placeholder="Card Holder Name"
-                  name="cardHolder"
-                  value={isForm.cardHolder}
-                  onChange={handleInput}
-                />
-                <div className="expiry-cvv">
-                  <input
-                    type="date"
-                    placeholder="Expiry Date (MM/YY)"
-                    name="cardExpiry"
-                    value={isForm.cardExpiry}
-                    onChange={handleInput}
-                  />
-                  <input
-                    type="text"
-                    placeholder="CVV"
-                    name="cardCode"
-                    value={isForm.cardCode}
-                    onChange={handleInput}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="other-payment">
-              <input
-                type="radio"
-                id="paypal"
-                name="payMethod"
-                value="paypal"
-                checked={isForm.payMethod === "paypal"}
-                onChange={handleInput}
-                required
-              />
-              <label htmlFor="paypal">Other payment method</label>
-              {otherPaymentImg.map((item) => (
-                <img
-                  key={item.name}
-                  src={`${import.meta.env.BASE_URL}${item.src}`}
-                  alt={`${item.name}-image`}
-                />
-              ))}
-            </div>
-          </div>
-          <div className="submit-button">
-            <button
-              type="button"
-              className="cancel-reservation-button"
-              onClick={handleNavigate}
-            >
-              Cancel Reservation
-            </button>
-            <button
-              type="submit"
-              className="final-step-button"
-              onClick={handleSubmit}
-            >
-              Final Step
-            </button>
-          </div>
-        </form>
-
         <div className="room-selected-summary">
           <div className="selected-room-wrapper">
             <img
@@ -268,7 +130,7 @@ See next page for final process.`);
               <select
                 id="room"
                 name="room"
-                onChange={(e) => setRoomCount(e.target.value)}
+                onChange={(e) => setRoomCount(Number(e.target.value))}
               >
                 <option value="">-- Select Room --</option>
                 <option value="1">1</option>
@@ -341,6 +203,148 @@ See next page for final process.`);
             <p>{policy[0].policy}</p>
           </div>
         </div>
+        <PayPalScriptProvider options={initialOptions}>
+          <div className="form-section">
+            <div className="input-label-wrap">
+              <label htmlFor="firstName">First Name:</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                value={isForm.firstName}
+                onChange={handleInput}
+                required
+              />
+            </div>
+            <div className="input-label-wrap">
+              <label htmlFor="lastName">Family Name:</label>
+              <input
+                type="text"
+                id="lastName"
+                name="familyName"
+                value={isForm.familyName}
+                onChange={handleInput}
+                required
+              />
+            </div>
+            <div className="input-label-wrap">
+              <label htmlFor="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={isForm.email}
+                onChange={handleInput}
+                required
+              />
+            </div>
+            <div className="input-label-wrap">
+              <label htmlFor="phone">Phone Number:</label>
+              <input
+                type="tel"
+                id="phone"
+                name="contact"
+                value={isForm.contact}
+                onChange={handleInput}
+                required
+              />
+            </div>
+            <div className="paypal-button-container">
+              <PayPalButtons
+                style={{
+                  layout: "vertical",
+                  shape: "rect",
+                  color: "gold",
+                  height: 50,
+                }}
+                //Validation Logic
+                onClick={(data, actions) => {
+                  if (
+                    !isForm.firstName.trim() ||
+                    !isForm.familyName.trim() ||
+                    !isForm.email.trim() ||
+                    !isForm.contact.trim()
+                  ) {
+                    alert("Please fill the form first");
+                    return actions.reject();
+                  }
+                  return actions.resolve();
+                }}
+                //Create Order (Backend Call)
+                createOrder={async () => {
+                  const response = await fetch(
+                    "http://localhost:8080/api/orders",
+                    {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({
+                        customerInfo: {
+                          firstName: isForm.firstName,
+                          lastName: isForm.familyName,
+                          email: isForm.email,
+                          contact: isForm.contact,
+                        },
+                      }),
+                    },
+                  );
+                  const data = await response.json();
+                  return data.id; //PayPal Order ID from backend
+                }}
+                //Capture Payment
+                onApprove={async (data) => {
+                  try {
+                    const response = await fetch(
+                      `http://localhost:8080/api/orders/${data.orderID}/capture`,
+                      {
+                        method: "POST",
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                          firstName: isForm.firstName,
+                          lastName: isForm.familyName,
+                          email: isForm.email,
+                          contact: isForm.contact,
+                          roomCount,
+                          checkIn: startDate.toISOString().split("T")[0],
+                          checkOut: endDate.toISOString().split("T")[0],
+                          nights,
+                          totalPayment: totalPrice.totalPrice,
+                          roomType: reserve[0]?.roomType,
+                        }),
+                      },
+                    );
+
+                    const captureData = await response.json();
+
+                    if (captureData.paypal?.status === "COMPLETED") {
+                      alert("Payment successful!");
+                      console.log(captureData);
+                    }
+                  } catch (error) {
+                    console.error(error);
+                  }
+                }}
+              />
+            </div>
+            <div className="submit-button">
+              <button
+                type="button"
+                className="cancel-reservation-button"
+                onClick={handleNavigate}
+              >
+                Cancel Reservation
+              </button>
+              {/*<button
+                type="submit"
+                className="final-step-button"
+                onClick={handleSubmit}
+              >
+                Final Step
+              </button>*/}
+            </div>
+          </div>
+        </PayPalScriptProvider>
       </section>
     </>
   );

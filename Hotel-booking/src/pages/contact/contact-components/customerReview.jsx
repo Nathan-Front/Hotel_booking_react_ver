@@ -64,9 +64,38 @@ function CustomerReview() {
       setIsReviewIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
     }
   };
+
+  const sectionRef = useRef(null);
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShow(true);
+        } else {
+          setShow(false);
+        }
+      },
+      { threshold: 0.4, rootMargin: "0px" },
+    );
+    const current = sectionRef.current;
+    if (current) {
+      observer.observe(current);
+    }
+    return () => {
+      if (current) observer.unobserve(current);
+    };
+  }, []);
   return (
     <>
-      <section className="customer-review-section">
+      <section
+        className={
+          show
+            ? "customer-review-section slideReview"
+            : "customer-review-section"
+        }
+        ref={sectionRef}
+      >
         <div>
           <h2>Here's what our customers are saying</h2>
         </div>

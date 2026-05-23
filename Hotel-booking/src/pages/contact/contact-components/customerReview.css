@@ -2,6 +2,17 @@
 .customer-review-section{
     padding: 50px 0;
     background-color: aliceblue;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.customer-review-section.slideReview{
+    opacity: 1;
+    transform: translateY(0)
+}
+.customer-review-section> div> h2 {
+    width: 95%;
+    margin: 0 auto;
 }
 .review-carousel-main-wrap{
     width: 95%;
@@ -9,24 +20,19 @@
     overflow: hidden;
     padding: 30px 0;
     position: relative;
-
-
 }
 .review-carousel-wrapper{
     display: flex;  
     gap: 1.5rem;
-    transition: transform 0.4s ease;
-
-    
+    transition: transform 0.4s ease;   
 }
 .review-carousel-items{
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    
     flex: 0 0 calc((100% - 3rem) / 3);/* 3rem = 2 gaps between 3 visible slides */
- min-width: 0;
+    min-width: 0;
 }
 @media only screen and (max-width:599px) {
      .review-carousel-items {
@@ -43,7 +49,7 @@
 }
 
 .review-carousel-items> div> img{
-    width: 80px; /* Highly recommended to use a fixed size for avatars */
+    width: 80px; /*Fixed size for avatars */
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     margin: 20px auto;

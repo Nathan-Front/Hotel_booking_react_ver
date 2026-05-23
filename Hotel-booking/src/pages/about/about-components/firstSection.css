@@ -5,8 +5,13 @@
     background-color: aliceblue;
     position: relative;
     z-index: 9;
+    padding: 50px 0;
 }
-
+@media only screen and (max-width: 599px) {
+    .about-section {
+        padding: 20px 0;
+    }
+}
 .about-descript-wrapper{
     display: flex;
 
@@ -31,9 +36,8 @@
     margin: 0 auto;
 }
 .about-image-wrapper{
-    flex: 1.25;
+    flex: 1;
     position: relative;
-
 }
 .about-banner{
     width: clamp(300px, 85%, 700px);
@@ -48,15 +52,15 @@
     overflow: hidden;
     position: absolute;
     bottom: -50px;
-    right: 20px;
+    right: 5%;
     border: 15px aliceblue solid;
 }
-@media only screen and (max-width: 920px){
+@media only screen and (max-width: 1024px){
     .about-descript-wrapper{
         flex-direction: column;
     }
     .about-image-wrapper{
-        width: 90%;
+        width: 80%;
         margin: 0 auto;
     }
     .about-enjoying{

@@ -7,7 +7,7 @@ label{
 .reserveRoom-html{
     display: flex;
     gap: 1em;
-    padding: 30px 0;
+    padding: 30px 0 80px 0;
     background-color: white;
     justify-content: center;
 }
@@ -15,16 +15,90 @@ label{
     display: flex;
     gap: 1em;
 }
+.room-selected-summary{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 1.2;
+    justify-self: center;
+}
+.selected-room-wrapper{
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 15px;
+    border: 1px solid #999;
+    border-radius: 0.25em;
+    
+}
+.selected-room-wrapper> img{
+    width: clamp(120px, 15vw, 300px);
+    height: clamp(120px, 10vw, 260px);
+    border-radius: 0.25em;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.4);
+}
+.selected-room-type{
+   margin: 0 0 0 20px;
+   padding: 0;
+   font-size: clamp(1.1rem, 2vw, 1.7rem);
+   text-align: left;
+   
+}
+.date-selection-wrapper,
+.payment-summary-wrap,
+.cancelation-wrap{
+    display: flex;
+    width: 90%;
+     margin: 0 auto;
+    flex-direction: column;
+    padding: 20px 15px;
+    border-left: 1px solid #999;
+    border-right: 1px solid #999;
+    border-bottom: 1px solid #999;
+    gap: 5px;
+    border-radius: 0.25em;
+    
+}
+.reserved-date{
+    margin: 0 0 10px 0;
+}
+.checkin-time,
+.checkout-time{
+    margin: 0 0 5px 0;
+}
+.select-date-room-container{
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+.select-date-room-container> label{
+    display: none;
+}
+.select-date-room-container> input,
+.select-date-room-container> select{
+    width: clamp(125px, 15vw, 250px);
+}
+.payment-summary-wrap> div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 .form-section{
     width: 100%;
     display: flex;
+    flex-direction: column;
     flex: 1; 
     position: relative;
     flex-wrap: wrap;
 }
+.form-section> div {
+    width: 90%;
+    
+}
 .input-label-wrap{
     width: clamp(250px, 50vw, 500px);
-    margin-left: 50px;
+    
     position: relative;
     display: flex;
     flex-direction: column;
@@ -81,7 +155,7 @@ label{
 .card-info,
 .other-payment{
     width: clamp(250px, 50vw, 500px);
-    margin-left: 50px;
+    
 }
 .card-info> input{
     width: 100%;
@@ -117,12 +191,33 @@ label{
     width: clamp(40px, 2vw, 80px);
     height:  clamp(20px, 2vw, 40px);
 }
+.paypal-button-container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 150px; 
+    display: flex;
+    box-sizing: border-box; 
+    justify-content: flex-start;
+}
+.paypal-button-container> div {
+    width: 100% !important;
+    max-width: inherit !important;
+}
+.paypal-button-container> div> div> iframe {
+    width: 100% !important;
+    border: 1px yellow solid;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    transform: translate(0);
+}
 .submit-button{
     width: clamp(250px, 50vw, 500px);
-    margin-left: 50px;
+
     display: flex;
     justify-content: space-between;
     gap: 1em;
+    margin-top: 50px;
 }
 .submit-button> button{
    border: none;
@@ -132,8 +227,8 @@ label{
 }
 .cancel-reservation-button{
     background-color: #6c757d;
-    padding: 3px 10px;
-    width: clamp(150px, 15vw, 300px);
+    padding: 10px 0;
+    width: 100%;
 }
 .cancel-reservation-button:hover{
     background-color: #8c1f29;
@@ -149,71 +244,6 @@ label{
     background-color: #174fc4;  
     transform: translateY(-1px);
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-.room-selected-summary{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    flex: 1.2;
-}
-.selected-room-wrapper{
-    display: flex;
-    width: 90%;
-    padding: 20px 15px;
-    border: 1px solid #999;
-    border-radius: 0.25em;
-    
-}
-.selected-room-wrapper> img{
-    width: clamp(150px, 15vw, 300px);
-    height: clamp(120px, 10vw, 260px);
-    border-radius: 0.25em;
-    box-shadow: 4px 4px 8px rgba(0,0,0,0.4);
-}
-.selected-room-type{
-   margin: 0 0 0 20px;
-   padding: 0;
-   font-size: clamp(1.1rem, 2vw, 1.7rem);
-   text-align: left;
-   
-}
-.date-selection-wrapper,
-.payment-summary-wrap,
-.cancelation-wrap{
-    display: flex;
-    width: 90%;
-    flex-direction: column;
-    padding: 20px 15px;
-    border-left: 1px solid #999;
-    border-right: 1px solid #999;
-    border-bottom: 1px solid #999;
-    gap: 5px;
-    border-radius: 0.25em;
-    
-}
-.reserved-date{
-    margin: 0 0 10px 0;
-}
-.checkin-time,
-.checkout-time{
-    margin: 0 0 5px 0;
-}
-.select-date-room-container{
-    display: flex;
-    gap: 2em;
-    flex-wrap: wrap;
-}
-.select-date-room-container> label{
-    display: none;
-}
-.select-date-room-container> input,
-.select-date-room-container> select{
-    width: clamp(125px, 15vw, 250px);
-}
-.payment-summary-wrap> div{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
 }
 @media only screen and (max-width: 599px){
     .reserveRoom-html{
@@ -232,8 +262,8 @@ label{
     .select-payment,
     .card-info,
     .other-payment,
-     .submit-button,
-     .room-selected-summary{
+    .submit-button,
+    .room-selected-summary{
         width: 90%;
         margin: 0 auto;
     }
@@ -252,4 +282,10 @@ label{
     .cancelation-wrap{
         width: 100%;
     }
+    .form-section> div {
+        width: 90%;
+        margin: 0 auto;
+    }
 }
+
+

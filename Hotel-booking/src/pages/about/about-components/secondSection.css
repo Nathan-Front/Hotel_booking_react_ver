@@ -40,6 +40,10 @@
     perspective: 1000px; 
     transform-style:preserve-3d; 
     transition: transform 1s ease-in-out; 
+    transform:rotateY(180deg); 
+}
+.flip-cards.flipLeaders{
+    transform:rotateY(360deg); 
 }
 .flipping-card{
     width: 100%;

@@ -35,7 +35,7 @@ footer{
     font-size: clamp(0.9rem, 1.3vw, 1.8rem);
 }
 .footer-panels> ul> li> a:hover{
-    color: red;
+    color: #D9B08C;
 }
 .footer-logo{
     width: clamp(15px, 1.5vw, 30px);

@@ -14,13 +14,13 @@ function FirstSection() {
           <div className="about-image-wrapper">
             <img
               className="about-banner"
-              src={`${import.meta.env.BASE_URL}images/about/firstSection/male-receptionist-suit-offering-room-key.jpg`}
+              src={`${import.meta.env.BASE_URL}images/about/firstSection/male-receptionist-suit-offering-room-key.webp`}
               alt="receptionist"
               loading="eager"
             />
             <img
               className="about-enjoying"
-              src={`${import.meta.env.BASE_URL}images/about/firstSection/enjoyingCircle.png`}
+              src={`${import.meta.env.BASE_URL}images/about/firstSection/enjoyingCircle.webp`}
               alt="enjoying image"
               loading="eager"
             />

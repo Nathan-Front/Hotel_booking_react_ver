@@ -1,6 +1,28 @@
 import "./secondSection.css";
 import { leaders } from "./data/secondSection.js";
+import { useState, useEffect, useRef } from "react";
 function SecondSection() {
+  const sectionRef = useRef(null);
+  const [flip, setFlip] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setFlip(true);
+        } else {
+          setFlip(false);
+        }
+      },
+      { threshold: 0.3, rootMargin: "0px" },
+    );
+    const current = sectionRef.current;
+    if (current) {
+      observer.observe(current);
+    }
+    return () => {
+      if (current) observer.unobserve(current);
+    };
+  }, []);
   return (
     <>
       <section className="leaders-section">
@@ -11,7 +33,11 @@ function SecondSection() {
         </p>
         <ul className="leaders-wrapper">
           {leaders.map((item) => (
-            <li className="flip-cards" key={item.id}>
+            <li
+              className={flip ? "flip-cards flipLeaders" : "flip-cards"}
+              ref={sectionRef}
+              key={item.id}
+            >
               <div className="flipping-card">
                 <div className="card-front">
                   <div className="leaders">
